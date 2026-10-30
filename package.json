@@ -1,0 +1,18 @@
+{
+  "name": "ecom-boutique-returns-prototype",
+  "version": "1.0.0",
+  "description": "Fashion Boutique Management System — Module 16: Returns, Exchanges & Refunds Prototype",
+  "main": "index.html",
+  "scripts": {
+    "start": "npx serve .",
+    "build": "echo 'Static build ready'"
+  },
+  "keywords": [
+    "fashion-boutique",
+    "returns-exchanges-refunds",
+    "prototype",
+    "admin-panel"
+  ],
+  "author": "",
+  "license": "ISC"
+}
