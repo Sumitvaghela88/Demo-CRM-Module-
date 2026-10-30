@@ -1,14 +1,10 @@
 {
   "version": 2,
   "name": "ecom-boutique-returns-prototype",
+  "outputDirectory": ".",
+  "buildCommand": null,
   "cleanUrls": true,
   "trailingSlash": false,
-  "rewrites": [
-    {
-      "source": "/",
-      "destination": "/index.html"
-    }
-  ],
   "headers": [
     {
       "source": "/(.*)",

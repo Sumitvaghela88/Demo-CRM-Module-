@@ -4,8 +4,7 @@
   "description": "Fashion Boutique Management System — Module 16: Returns, Exchanges & Refunds Prototype",
   "main": "index.html",
   "scripts": {
-    "start": "npx serve .",
-    "build": "echo 'Static build ready'"
+    "start": "npx serve ."
   },
   "keywords": [
     "fashion-boutique",
