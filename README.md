@@ -11,6 +11,30 @@ This clickable front-end prototype has been built for client presentation, adher
 
 ---
 
+### How to Deploy to Vercel
+
+#### Method 1: Direct CLI Deployment (Instant)
+Run in the project directory:
+```bash
+npx vercel
+```
+- Follow the interactive prompts (hit Enter to accept defaults).
+- For production deployment:
+```bash
+npx vercel --prod
+```
+
+#### Method 2: Via GitHub / GitLab
+1. Create a new repository on GitHub.
+2. Link and push your code:
+```bash
+git remote add origin https://github.com/<YOUR_USERNAME>/<YOUR_REPO>.git
+git push -u origin main
+```
+3. Open [vercel.com/new](https://vercel.com/new), select your repository, and click **Deploy**. Vercel will automatically read `vercel.json` and deploy.
+
+---
+
 ### Included Screens & Client Presentation Flows
 
 #### 1. Admin Management Workspace (`Module 16: Returns, Exchanges & Refunds`)
