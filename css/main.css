@@ -1316,6 +1316,14 @@ input, select, textarea {
 .table-responsive {
   width: 100%;
   overflow-x: auto;
+  scrollbar-width: none; /* Firefox */
+  -ms-overflow-style: none; /* IE / Edge */
+}
+
+.table-responsive::-webkit-scrollbar {
+  display: none; /* Chrome, Safari, Brave */
+  width: 0;
+  height: 0;
 }
 
 .data-table {
@@ -1326,7 +1334,7 @@ input, select, textarea {
 }
 
 .data-table th {
-  padding: 0.65rem 1rem;
+  padding: 0.65rem 0.65rem;
   background-color: var(--bg-subtle);
   border-bottom: 1px solid var(--border-hairline);
   font-size: 0.6875rem;
@@ -1338,6 +1346,16 @@ input, select, textarea {
   user-select: none;
 }
 
+.data-table th:first-child,
+.data-table td:first-child {
+  padding-left: 1.15rem;
+}
+
+.data-table th:last-child,
+.data-table td:last-child {
+  padding-right: 1.15rem;
+}
+
 .data-table th.sortable {
   cursor: pointer;
 }
@@ -1347,7 +1365,7 @@ input, select, textarea {
 }
 
 .data-table td {
-  padding: 0.75rem 1rem;
+  padding: 0.7rem 0.65rem;
   border-bottom: 1px solid var(--border-subtle);
   vertical-align: middle;
   color: var(--text-primary);
