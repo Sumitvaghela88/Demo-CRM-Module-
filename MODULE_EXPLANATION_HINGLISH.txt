@@ -1,0 +1,258 @@
+================================================================================
+FASHION BOUTIQUE MANAGEMENT SYSTEM — CLIENT PROTOTYPE EXPLANATION GUIDE
+Modules Covered: Module 1 (Overview), Module 2 (Products) & Module 16 (Returns & Refunds)
+System Scope: 16 Architecture Modules (Overview, Products & Returns FULLY WORKING)
+Language: Clear Hinglish / English Guide for Client Presentation
+================================================================================
+
+1. OVERVIEW & PURPOSE (Yeh System Kya Hai?)
+--------------------------------------------------------------------------------
+Yeh prototype ek luxury fashion boutique e-commerce brand aur studio atelier ka 
+Admin Management Panel (ERP) hai.
+
+Is presentation ke liye 3 sabse important interconnected modules ko POORI TARAH 
+clickable, reactive aur real-time synced banaya gaya hai:
+1. Module 1: Executive Overview (Dashboard, KPIs, Sales Chart & Stock Alerts)
+2. Module 2: Products Catalogue (Table/Grid, 8-Tab Editor, Live Storefront Preview, CSV, Barcode)
+3. Module 16: Returns, Exchanges & Refunds (Admin Queue, Size Exchange, Restock Ledger, Customer Portal)
+
+Saath hi baaki sabhi enterprise modules (Categories, Barcodes, Inventory, HR, 
+Finance, Shipments, Exhibitions, Orders, POS, Coupons, Customers) sidebar mein 
+visibly present hain taaki client ko complete boutique system architecture samajh aaye. 
+Unhpar click karne par ek clean "Prototype Scope Boundary" notice aata hai.
+
+
+================================================================================
+2. PART A: SHARED SYSTEM SHELL (Top Bar, Sidebar & Roles)
+================================================================================
+
+A1. Left Sidebar (16 Modules Architecture)
+- Luxury studio aesthetic: Pure hairline 1px borders, warm bone & obsidian palette.
+- Neutral branding: Box labeled "LOGO" aur text "Brand Name".
+- Active Clickable Modules:
+  * 1. Overview (Dashboard)
+  * 2. Products (Badge: 42 products)
+  * 16. Returns & Refunds (Badge: 8 requests)
+- Modules 3 to 15: Visible in sidebar, click shows clean scope modal.
+
+A2. Top Bar Controls
+- Global Search Autocomplete: Real-time search across Products, Orders (e.g. ORD-24817), 
+  aur Customers (e.g. Pooja Sharma, Ananya). Product par click karte hi seedha editor khulta hai.
+- Date Range Selector: Today / Last 7 Days / Last 30 Days / This Month / Custom. 
+  Overview ke saare KPIs, Subtitle aur Chart dynamically react karte hain.
+- Notification Bell: Studio alerts (e.g. Low Stock Warning, New Return Claim). 
+  "Mark all read" se unread badge dot clear ho jaata hai.
+- Role-Based Switcher (Admin / Manager / Staff):
+  * Admin: Full access (Confidential artisan cost prices, gross profit margins, delete buttons, 
+    widget customization).
+  * Manager: Products create/edit kar sakta hai, publish/unpublish kar sakta hai; cost price 
+    aur delete button securely hidden hote hain.
+  * Staff: Sirf inventory count reconciliations (Quick Stock Adjust) aur garment inspection kar 
+    sakta hai. Price fields locked hote hain. Overview mein Revenue & AOV figures par 
+    "Restricted (Staff View)" ka locked overlay dikhta hai.
+- Theme Switcher: Obsidian Dark (#1C1B19) aur Warm Bone Light (#F6F3EE) ke beech instant toggle.
+- Prototype State Simulator:
+  * Normal Data (Standard live demo)
+  * Empty Store (New boutique store setup)
+  * Skeleton Shimmer (Loading state presentation)
+  * Sync Error (API failure with "Retry Connection" button)
+
+
+================================================================================
+3. PART B: MODULE 1 — EXECUTIVE OVERVIEW DASHBOARD
+================================================================================
+
+B1. KPI Strip (6 Key Figures with Sparklines)
+1. Net Atelier Revenue ($): Selected period ki total sales (Staff role mein locked).
+2. Completed Orders: Total placed & fulfilled orders count.
+3. Average Order Value ($): Revenue divided by orders.
+4. New Patrons Acquired: First-time customers count (+18.4% growth).
+5. Online Conversion Rate: Storefront visitors to purchase percentage (3.42%).
+6. Return / Exchange Rate: Reverse logistics rate (2.1% - healthy benchmark).
+Har card par historical comparison aur dynamic SVG sparkline graph hai.
+
+B2. Sales & Volume Trajectory (Interactive SVG Line Chart)
+- Solid line = Current period performance.
+- Dashed line = Previous period comparison line.
+- Hover Crosshair & Tooltip: Mouse le jaane par date-by-date exact revenue/orders 
+  aur growth percentage dikhti hai.
+- Toggle Controls: Revenue ($) vs Orders (Qty) aur Channel (All vs Online vs POS).
+
+B3. Orders Needing Action (Fulfillment Queue)
+- Pending Wire / NEFT Transfer (4 orders)
+- Ready to Pack in Studio (11 orders)
+- Awaiting Courier Pickup (BlueDart) (7 shipments)
+- Return Claims Awaiting Studio QC (5 requests) -> Click karte hi SEEDHA Module 16 (Returns) khulta hai!
+
+B4. Top Selling Silhouettes (Top 5 Products)
+- Highest revenue-generating garments ranking (units sold, revenue, trend badge).
+- Click karne par seedha Product Editor mein open ho jaata hai!
+
+B5. Stock Level Warnings (Low Stock & Out-of-Stock Alerts)
+- Threshold: <= 4 pcs.
+- System automatically poore catalogue ke variants scan karke low stock items list karta hai.
+- "Update stock" button dabane par seedha Quick-Edit Modal khul jaata hai!
+
+B6. Category & Channel Distribution
+- Category bars: Dresses, Kurtas & Tunics, Sarees & Drapes, etc. ka percentage share.
+- Channel segmented bar: Online (72%), Atelier POS (23%), Trunk Shows (5%).
+
+B7. Atelier Operational Activity Ledger
+- Kis user ne kya action liya (e.g. "Staff Sunita added 12 units to Linen Wrap Midi Dress").
+- Filter by user: All Staff / Admin / Manager / Staff.
+- Real-time auto-logging: Stock adjust, product save, ya return approve hote hi 
+  event sabse upar log ho jaata hai!
+
+B8. Dashboard Customizer Drawer
+- "Customize Widgets" button dabane par slide-over drawer khulta hai.
+- Admin kisi bhi widget ko check/uncheck karke screen par show/hide kar sakta hai.
+
+
+================================================================================
+4. PART C: MODULE 2 — PRODUCTS CATALOGUE & INVENTORY
+================================================================================
+
+C1. Catalogue Views & Multi-Filtering
+- 42 realistic luxury handcrafted products (Linen dresses, Chanderi kurtas, Jamdani sarees).
+- View Toggle: Structured Data Table ⇄ Visual Grid Cards.
+- Saved Views Tabs: All (42), Published (38), Drafts (3), Low Stock (7), Archived (1).
+- Multi-Filter Toolbar: Live Search (Name, SKU, Barcode), Category select, Stock select, 
+  Price range select, Size select, Active filter chips strip with Clear All.
+- Column Sorting & Pagination: Sort by Name, Category, Price, Stock, Status. 10/25/50 per page.
+
+C2. Multi-Select & Floating Bulk Action Bar
+- Table header checkbox se page ke sabhi products select hote hain.
+- Floating bar slide-in: Publish, Unpublish, Archive, Apply 10% Discount, Delete (Admin only).
+
+C3. Quick-View Product Drawer
+- Table ke eye icon se khulta hai.
+- Size x Color Heat Grid: Green (>4 pcs), Amber (1-4 pcs), Red (0 pcs - Out of stock).
+- 30-day units sold aur return rate summary.
+- "Edit Product" button se full editor par jump.
+
+C4. Quick Adjust Stock Modal
+- Table ke stock icon ya Overview ke "Update stock" button se khulta hai.
+- Stock adjustment reason select karein (Artisan shipment received, physical count correction, damaged piece).
+- Har size (XS, S, M, L, XL, XXL) ke liye [-] aur [+] steppers aur direct number entry.
+- "Save & Reconcile Stock" dabate hi total stock update hota hai, Activity Log mein entry hoti hai, 
+  aur Overview warnings refresh ho jaate hain!
+
+C5. Barcode Hangtag Label Print Preview
+- Table ke barcode icon se garment hangtag preview modal khulta hai.
+- Thermal label price tag: Brand "LOGO", product title, variant SKU, size, color, vector barcode strips, 
+  EAN number aur retail price ($). "Print Label" simulation button.
+
+C6. CSV Batch Import & Export
+- Export CSV: Ek click mein poora active catalogue standard `.csv` file format mein download hota hai.
+- Import CSV Wizard (3-Step): Step 1 upload dropzone -> Step 2 validation table with realistic errors 
+  (duplicate SKU, negative price) -> Step 3 valid rows catalogue mein jud jaate hain!
+
+C7. Dedicated Full-Page Product Editor (8 Tabs + Live Storefront Preview)
+- Tab 1: Basic Info (Product title, auto-generating URL slug, master SKU, rich-text description, fabric, care, origin).
+- Tab 2: Pricing Strategy & Margins (Regular price, sale price, Admin Confidential Cost Price with dynamic Gross Margin % & dollar profit per unit calculation).
+- Tab 3: Variants & Multi-Size Matrix (Color swatches, size run pills, bulk fill helper, multi-variant table).
+- Tab 4: Media & Photos (Drag-and-drop studio upload zone simulation with primary hero badge).
+- Tab 5: Inventory Policy (Track stock toggle, low stock threshold, backorders toggle, recent stock adjustments).
+- Tab 6: Categories & Cross-Sells (Category select, sub-category, Complete the Look recommendations).
+- Tab 7: SEO & Live Google SERP Card Preview (Live search result snippet card mirroring Google SERP format).
+- Tab 8: Shipping Logistics & Returns (Weight, dimensions, return eligibility toggle, return window days).
+- Right-Side Live Customer Storefront Preview: Desktop ⇄ Mobile screen toggle with real-time sync!
+
+
+================================================================================
+5. PART D: MODULE 16 — RETURNS, EXCHANGES & REFUNDS (BUILT & ACTIVE)
+================================================================================
+
+D1. Returns Management Workspace
+- Sidebar item "16. Returns & Refunds" par click karne par khulta hai.
+- Metric Ribbon:
+  * Needs Review (2 new claims)
+  * Consignments In Transit (2 shipments via BlueDart)
+  * Exchanges in Pipeline (3 size & product swaps)
+  * Refunds Processed ($1,280 settled)
+- Status Tabs: All Requests (8), Needs Action (4), In Transit / Studio (3), Exchanges (3), Refunded (1), Rejected (1).
+- Multi-Filter Toolbar: Search by Order ID, customer, phone, SKU; filter by resolution type, reason, date.
+
+D2. Slide-Over Request Detail Drawer (Inspection Dossier)
+- Kisi bhi row ke "Inspect →" par click karne par drawer khulta hai:
+  * Patron profile: Customer name, phone, email, delivery & reverse pickup address.
+  * Garment Inspection Card: Garment title, size, color, SKU, price ($), studio rack location (e.g. Studio Rack A-04).
+  * Customer Return Reason: Stated reason category aur verbatim customer note quote.
+  * Inspection Photo Evidence: Customer uploaded photos with "Click to Zoom" opening the Macro Zoom inspection modal!
+  * Status Audit Timeline: Chronological record (Requested -> Approved -> Received -> Exchanged/Refunded).
+- Interactive Action Workspace:
+  * APPROVE: "Approve & Schedule Reverse Pickup" -> status "approved" hota hai, BlueDart AWB (BD-77829104) generate hota hai.
+  * REJECT: "Reject Request" -> opens Rejection Modal with policy presets (Tag removed, worn garment, window expired) aur custom formal note.
+  * STUDIO INWARD: "Confirm Studio Receipt & Physical QC Passed" -> status "received" hota hai.
+  * SIZE EXCHANGE: Live in-stock size picker; "Confirm Size Exchange" dabane par old size restock (+1) aur new size deduct (-1) hota hai, Central Ledger aur Overview update hote hain!
+  * PRODUCT SWAP: Alternative garment swap with price delta calculation (+$70 collected).
+  * PROCESS REFUND: Refund recording form ($ amount, method: Stripe / Store Credit Voucher / Bank NEFT, transaction UTR). Restocks garment to studio inventory and updates status to "refunded".
+
+D3. Studio Stock & Inventory Audit Ledger Modal
+- Header button "Stock Ledger" par click karne par full audit modal khulta hai.
+- Real-time reconciliation table: Timestamp, SKU, Movement (Restocked, Dispatched), Delta (+1, -1), Location, Reason / Claim Ref, Logged by.
+
+D4. Customer Concierge Portal Screen ("Request a Return")
+- Header button "Customer Portal →" par click karne par customer-facing screen khulti hai.
+- Step 1: Order Lookup (Order ID & Phone, with Quick Demo chips for ORD-24817 and ORD-24805).
+- Step 2: Garment selection card with size, color, and price.
+- Step 3: Preferred Resolution choice cards (Size Exchange, Store Credit +10% Bonus, Swap for Different Garment, Refund).
+- Step 4: Reason category dropdown & notes textarea for master tailor.
+- Step 5: Upload dropzone simulation with attached photo verification.
+- Step 6: Confirmation of doorstep pickup address & "Submit Return & Request Pickup" button.
+- Confirmation Screen: Generates unique reference ID (e.g. RET-26-090).
+- "← Return to Admin Panel" button par click karte hi yeh new request Admin Queue mein SABSE UPAR highlighted "NEW" tag ke sath appear hoti hai aur uska detail drawer automatically khul jaata hai!
+
+
+================================================================================
+6. COMPLETE INTERCONNECTED WORKFLOW (CROSS-MODULE INTEGRATION)
+================================================================================
+
+Yeh prototype pure static standalone files mein hone ke bawajood 100% interconnected hai:
+1. Overview to Returns:
+   - Overview ke "Orders Needing Action" mein "Return Claims Awaiting Studio QC" par click karte hi seedha Module 16: Returns khul jaata hai!
+2. Returns to Products & Overview:
+   - Jab aap Module 16 mein koi Size Exchange ya Refund approve karke restock karte hain, toh woh:
+     * Module 2 (Products) ke matching garment ka stock update karta hai!
+     * Studio Inventory Ledger mein entry daalta hai!
+     * Atelier Activity Feed mein log ho jaata hai!
+     * Overview ke low-stock alerts aur top seller figures ko dynamically refresh karta hai!
+3. Customer Portal to Admin:
+   - Customer portal se return daalne par Admin queue mein turant new record appear hota hai aur topbar notifications bell mein alert chala jaata hai!
+
+
+================================================================================
+7. CLIENT PRESENTATION PRO TIPS (Presentation Kaise Dena Hai?)
+================================================================================
+
+1. Start at Overview (Module 1):
+   - Client ko KPI strip aur SVG sales comparison line chart dikhayein.
+   - Crosshair hover karke exact numbers dikhayein.
+   - Date range "Today" se "Last 30 Days" change karke live reaction dikhayein.
+
+2. Role Switcher Demo:
+   - Role "Admin" se "Staff" switch karein.
+   - Overview ke Revenue figures par "Restricted (Staff View)" overlay dikhayein aur Products mein price change/delete buttons hide hone ka proof dikhayein.
+   - Fir "Admin" par wapas switch karein.
+
+3. Module 2 Products Demo:
+   - Table view aur Grid view toggle karein.
+   - Quick-View drawer kholkar Size x Color Heat Grid dikhayein.
+   - Barcode Hangtag print modal kholkar boutique label dikhayein.
+   - CSV Import wizard mein realistic validation errors catch hote hue dikhayein.
+   - Dedicated 8-Tab Editor kholkar right side mein Live Customer Preview aur Google SERP card ka live typing sync dikhayein!
+
+4. Module 16 Returns & Refunds Demo:
+   - Sidebar se "16. Returns & Refunds" kholein.
+   - "Inspect →" dabakar drawer mein customer reason, photos (zoom modal), aur status timeline dikhayein.
+   - "Approve" ya "Size Exchange" confirm karein.
+   - Overview par jakar dikhayein: Inventory aur Activity log mein live record reflect ho gaya!
+
+5. Customer Concierge Portal Demo:
+   - "Customer Portal →" dabayein.
+   - "Try ORD-24817" chip par click karein.
+   - Size exchange choose karke Submit karein.
+   - "Return to Admin Panel" dabayein — aur dikhayein kaise new request sabse upar live queue mein khul gayi!
+
+Yeh poora system 100% front-end static hai, kisi backend server ki zaroorat nahi hai, aur Vercel par zero-config flawlessly live chalta hai.
+================================================================================

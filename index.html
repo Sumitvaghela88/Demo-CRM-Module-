@@ -3,51 +3,55 @@
 <head>
   <meta charset="UTF-8">
   <meta name="viewport" content="width=device-width, initial-scale=1.0">
-  <title>Brand Name — Returns, Exchanges & Refunds Management</title>
+  <title>Brand Name — Boutique Management System</title>
   <link rel="stylesheet" href="css/main.css">
 </head>
-<body class="mobile-card-view-enabled theme-dark" data-theme="dark">
+<body class="theme-dark" data-theme="dark">
 
   <!-- ==========================================================================
-       MAIN APP CONTAINER (ADMIN PANEL)
+       MAIN APP CONTAINER
        ========================================================================== -->
   <div class="app-container">
 
-    <!-- SIDEBAR: All 16 Modules from System Architecture -->
-    <aside class="sidebar">
-      <!-- Brand Neutrality Placeholder -->
+    <!-- LEFT SIDEBAR: All 16 Modules from System Architecture -->
+    <aside class="sidebar" id="app-sidebar">
+      <!-- Neutral Brand Header -->
       <div class="sidebar-header">
         <div class="brand-placeholder">
           <div class="logo-box">LOGO</div>
           <div class="brand-info">
             <span class="brand-title">Brand Name</span>
-            <span class="brand-sub">Boutique Management</span>
+            <span class="brand-sub">Boutique Atelier ERP</span>
           </div>
         </div>
       </div>
 
-      <!-- Module Navigation List (All 16 Modules Listed) -->
+      <!-- Navigation Modules List -->
       <div class="sidebar-nav-container">
-        <div class="sidebar-section-label">Operations & Catalog</div>
+        <div class="sidebar-section-label">Core Operations</div>
         <ul class="nav-list">
+          <!-- Module 1: Overview (BUILT) -->
           <li class="nav-item">
-            <a href="#" class="nav-link inactive-module" title="Overview Module">
+            <a href="javascript:void(0)" class="nav-link active" id="nav-overview" data-module="overview" title="Module 1: Overview Dashboard">
               <div class="nav-link-left">
                 <svg class="nav-icon" viewBox="0 0 24 24" fill="none" stroke="currentColor"><rect width="7" height="9" x="3" y="3" rx="1"/><rect width="7" height="5" x="14" y="3" rx="1"/><rect width="7" height="9" x="14" y="12" rx="1"/><rect width="7" height="5" x="3" y="16" rx="1"/></svg>
                 <span>1. Overview</span>
               </div>
             </a>
           </li>
+          <!-- Module 2: Products (BUILT) -->
           <li class="nav-item">
-            <a href="#" class="nav-link inactive-module" title="Products Module">
+            <a href="javascript:void(0)" class="nav-link" id="nav-products" data-module="products" title="Module 2: Products Catalog & Inventory">
               <div class="nav-link-left">
                 <svg class="nav-icon" viewBox="0 0 24 24" fill="none" stroke="currentColor"><path d="M20.38 3.46 16 2a4 4 0 0 1-8 0L3.62 3.46a2 2 0 0 0-1.34 2.23l.58 3.47a1 1 0 0 0 .99.84H6v10c0 1.1.9 2 2 2h8a2 2 0 0 0 2-2V10h2.15a1 1 0 0 0 .99-.84l.58-3.47a2 2 0 0 0-1.34-2.23z"/></svg>
                 <span>2. Products</span>
               </div>
+              <span class="nav-badge" id="sidebar-products-count">42</span>
             </a>
           </li>
+          <!-- Inactive Modules 3 - 8 -->
           <li class="nav-item">
-            <a href="#" class="nav-link inactive-module" title="Categories Module">
+            <a href="javascript:void(0)" class="nav-link inactive-module" data-module-name="Categories">
               <div class="nav-link-left">
                 <svg class="nav-icon" viewBox="0 0 24 24" fill="none" stroke="currentColor"><path d="m3 9 9-7 9 7v11a2 2 0 0 1-2 2H5a2 2 0 0 1-2-2z"/><polyline points="9 22 9 12 15 12 15 22"/></svg>
                 <span>3. Categories</span>
@@ -55,7 +59,7 @@
             </a>
           </li>
           <li class="nav-item">
-            <a href="#" class="nav-link inactive-module" title="Barcodes & Scanning">
+            <a href="javascript:void(0)" class="nav-link inactive-module" data-module-name="Barcodes & Scanning">
               <div class="nav-link-left">
                 <svg class="nav-icon" viewBox="0 0 24 24" fill="none" stroke="currentColor"><path d="M3 5v14"/><path d="M8 5v14"/><path d="M12 5v14"/><path d="M17 5v14"/><path d="M21 5v14"/></svg>
                 <span>4. Barcodes & Scanning</span>
@@ -63,7 +67,7 @@
             </a>
           </li>
           <li class="nav-item">
-            <a href="#" class="nav-link inactive-module" title="Inventory & Sizes">
+            <a href="javascript:void(0)" class="nav-link inactive-module" data-module-name="Inventory & Sizes">
               <div class="nav-link-left">
                 <svg class="nav-icon" viewBox="0 0 24 24" fill="none" stroke="currentColor"><polygon points="12 2 2 7 12 12 22 7 12 2"/><polyline points="2 17 12 22 22 17"/><polyline points="2 12 12 17 22 12"/></svg>
                 <span>5. Inventory & Sizes</span>
@@ -71,7 +75,7 @@
             </a>
           </li>
           <li class="nav-item">
-            <a href="#" class="nav-link inactive-module" title="Internal Inventory">
+            <a href="javascript:void(0)" class="nav-link inactive-module" data-module-name="Internal Inventory">
               <div class="nav-link-left">
                 <svg class="nav-icon" viewBox="0 0 24 24" fill="none" stroke="currentColor"><rect width="8" height="18" x="3" y="3" rx="1"/><path d="M7 3v18"/><rect width="8" height="18" x="13" y="3" rx="1"/><path d="M17 3v18"/></svg>
                 <span>6. Internal Inventory</span>
@@ -79,7 +83,7 @@
             </a>
           </li>
           <li class="nav-item">
-            <a href="#" class="nav-link inactive-module" title="HR & Attendance">
+            <a href="javascript:void(0)" class="nav-link inactive-module" data-module-name="HR & Attendance">
               <div class="nav-link-left">
                 <svg class="nav-icon" viewBox="0 0 24 24" fill="none" stroke="currentColor"><path d="M16 21v-2a4 4 0 0 0-4-4H6a4 4 0 0 0-4 4v2"/><circle cx="9" cy="7" r="4"/><path d="M22 21v-2a4 4 0 0 0-3-3.87"/><path d="M16 3.13a4 4 0 0 1 0 7.75"/></svg>
                 <span>7. HR & Attendance</span>
@@ -87,7 +91,7 @@
             </a>
           </li>
           <li class="nav-item">
-            <a href="#" class="nav-link inactive-module" title="Finance & Accounting">
+            <a href="javascript:void(0)" class="nav-link inactive-module" data-module-name="Finance & Accounting">
               <div class="nav-link-left">
                 <svg class="nav-icon" viewBox="0 0 24 24" fill="none" stroke="currentColor"><line x1="12" x2="12" y1="2" y2="22"/><path d="M17 5H9.5a3.5 3.5 0 0 0 0 7h5a3.5 3.5 0 0 1 0 7H6"/></svg>
                 <span>8. Finance & Accounting</span>
@@ -96,10 +100,10 @@
           </li>
         </ul>
 
-        <div class="sidebar-section-label" style="margin-top: 0.75rem;">Sales, Studio & Logistics</div>
+        <div class="sidebar-section-label" style="margin-top: 0.65rem;">Commerce & Logistics</div>
         <ul class="nav-list">
           <li class="nav-item">
-            <a href="#" class="nav-link inactive-module" title="Shipments & Operations">
+            <a href="javascript:void(0)" class="nav-link inactive-module" data-module-name="Shipments & Operations">
               <div class="nav-link-left">
                 <svg class="nav-icon" viewBox="0 0 24 24" fill="none" stroke="currentColor"><path d="M14 18V6a2 2 0 0 0-2-2H4a2 2 0 0 0-2 2v11a1 1 0 0 0 1 1h2"/><path d="M15 18H9"/><path d="M19 18h2a1 1 0 0 0 1-1v-3.65a1 1 0 0 0-.22-.62l-3.48-4.35A1 1 0 0 0 17.52 8H14"/><circle cx="17" cy="18" r="2"/><circle cx="7" cy="18" r="2"/></svg>
                 <span>9. Shipments & Operations</span>
@@ -107,7 +111,7 @@
             </a>
           </li>
           <li class="nav-item">
-            <a href="#" class="nav-link inactive-module" title="Exhibitions & Events">
+            <a href="javascript:void(0)" class="nav-link inactive-module" data-module-name="Exhibitions & Events">
               <div class="nav-link-left">
                 <svg class="nav-icon" viewBox="0 0 24 24" fill="none" stroke="currentColor"><rect width="18" height="18" x="3" y="4" rx="2" ry="2"/><line x1="16" x2="16" y1="2" y2="6"/><line x1="8" x2="8" y1="2" y2="6"/><line x1="3" x2="21" y1="10" y2="10"/></svg>
                 <span>10. Exhibitions & Events</span>
@@ -115,7 +119,7 @@
             </a>
           </li>
           <li class="nav-item">
-            <a href="#" class="nav-link inactive-module" title="Product Submit Requests">
+            <a href="javascript:void(0)" class="nav-link inactive-module" data-module-name="Product Submit Requests">
               <div class="nav-link-left">
                 <svg class="nav-icon" viewBox="0 0 24 24" fill="none" stroke="currentColor"><path d="M14.5 2H6a2 2 0 0 0-2 2v16a2 2 0 0 0 2 2h12a2 2 0 0 0 2-2V7.5L14.5 2z"/><polyline points="14 2 14 8 20 8"/><line x1="12" x2="12" y1="18" y2="12"/><line x1="9" x2="15" y1="15" y2="15"/></svg>
                 <span>11. Product Submit Requests</span>
@@ -123,7 +127,7 @@
             </a>
           </li>
           <li class="nav-item">
-            <a href="#" class="nav-link inactive-module" title="Orders & Shipping">
+            <a href="javascript:void(0)" class="nav-link inactive-module" data-module-name="Orders & Shipping">
               <div class="nav-link-left">
                 <svg class="nav-icon" viewBox="0 0 24 24" fill="none" stroke="currentColor"><circle cx="8" cy="21" r="1"/><circle cx="19" cy="21" r="1"/><path d="M2.05 2.05h2l2.66 12.42a2 2 0 0 0 2 1.58h9.78a2 2 0 0 0 1.95-1.57l1.65-7.43H5.12"/></svg>
                 <span>12. Orders & Shipping</span>
@@ -131,7 +135,7 @@
             </a>
           </li>
           <li class="nav-item">
-            <a href="#" class="nav-link inactive-module" title="POS Orders">
+            <a href="javascript:void(0)" class="nav-link inactive-module" data-module-name="POS Orders">
               <div class="nav-link-left">
                 <svg class="nav-icon" viewBox="0 0 24 24" fill="none" stroke="currentColor"><rect width="20" height="14" x="2" y="5" rx="2"/><line x1="2" x2="22" y1="10" y2="10"/></svg>
                 <span>13. POS Orders</span>
@@ -139,7 +143,7 @@
             </a>
           </li>
           <li class="nav-item">
-            <a href="#" class="nav-link inactive-module" title="Coupons">
+            <a href="javascript:void(0)" class="nav-link inactive-module" data-module-name="Coupons">
               <div class="nav-link-left">
                 <svg class="nav-icon" viewBox="0 0 24 24" fill="none" stroke="currentColor"><path d="M2 9a3 3 0 0 1 0 6v2a2 2 0 0 0 2 2h16a2 2 0 0 0 2-2v-2a3 3 0 0 1 0-6V7a2 2 0 0 0-2-2H4a2 2 0 0 0-2 2Z"/><path d="M13 5v2"/><path d="M13 17v2"/><path d="M13 11v2"/></svg>
                 <span>14. Coupons</span>
@@ -147,190 +151,1049 @@
             </a>
           </li>
           <li class="nav-item">
-            <a href="#" class="nav-link inactive-module" title="Customers">
+            <a href="javascript:void(0)" class="nav-link inactive-module" data-module-name="Customers">
               <div class="nav-link-left">
                 <svg class="nav-icon" viewBox="0 0 24 24" fill="none" stroke="currentColor"><path d="M19 21v-2a4 4 0 0 0-4-4H9a4 4 0 0 0-4 4v2"/><circle cx="12" cy="7" r="4"/></svg>
                 <span>15. Customers</span>
               </div>
             </a>
           </li>
-          <!-- Module 16: ACTIVE -->
           <li class="nav-item">
-            <a href="javascript:void(0)" class="nav-link active" title="Active Module">
+            <a href="javascript:void(0)" class="nav-link" id="nav-returns" data-module="returns" title="Module 16: Returns, Exchanges & Refunds">
               <div class="nav-link-left">
                 <svg class="nav-icon" viewBox="0 0 24 24" fill="none" stroke="currentColor"><path d="M3 12a9 9 0 0 1 9-9 9.75 9.75 0 0 1 6.74 2.74L21 8"/><path d="M21 3v5h-5"/><path d="M21 12a9 9 0 0 1-9 9 9.75 9.75 0 0 1-6.74-2.74L3 16"/><path d="M8 16H3v5"/></svg>
                 <span>16. Returns & Refunds</span>
               </div>
-              <span class="nav-badge" id="sidebar-badge-count">8</span>
+              <span class="nav-badge" id="sidebar-returns-count">8</span>
             </a>
           </li>
         </ul>
       </div>
 
-      <!-- Sidebar Footer: Active Role & System Notice -->
+      <!-- Sidebar Footer with Role Indicator -->
       <div class="sidebar-footer">
         <div class="role-hint-card">
-          <span style="color: var(--text-muted); font-size: 0.7rem;">Active Role:</span>
+          <span style="color: var(--text-muted); font-size: 0.6875rem;">Active Role:</span>
           <span class="role-badge">
             <span class="role-dot"></span>
-            <span id="role-indicator-text">Store Manager (Admin)</span>
+            <span id="sidebar-role-indicator">Admin (Full Rights)</span>
           </span>
         </div>
       </div>
     </aside>
 
-    <!-- MAIN WRAPPER -->
+    <!-- MAIN APP WRAPPER -->
     <div class="main-wrapper">
 
-      <!-- TOPBAR: Role Switcher, State Simulator & View Toggle -->
+      <!-- TOP NAVIGATION BAR -->
       <header class="topbar">
         <div class="topbar-left">
-          <button class="mobile-menu-btn" id="mobile-menu-btn" aria-label="Toggle navigation">
-            <svg width="20" height="20" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><line x1="3" x2="21" y1="6" y2="6"/><line x1="3" x2="21" y1="12" y2="12"/><line x1="3" x2="21" y1="18" y2="18"/></svg>
+          <button class="mobile-menu-btn" id="mobile-menu-toggle-btn" aria-label="Toggle navigation">
+            <svg width="18" height="18" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><line x1="3" x2="21" y1="6" y2="6"/><line x1="3" x2="21" y1="12" y2="12"/><line x1="3" x2="21" y1="18" y2="18"/></svg>
           </button>
-          <nav class="breadcrumbs">
-            <span class="breadcrumb-crumb">Boutique Management</span>
+          <nav class="breadcrumbs" id="topbar-breadcrumbs">
+            <span class="breadcrumb-crumb" id="breadcrumb-root">Atelier ERP</span>
             <span class="breadcrumb-sep">/</span>
-            <span class="breadcrumb-current">Returns, Exchanges & Refunds</span>
+            <span class="breadcrumb-current" id="breadcrumb-current">Overview</span>
           </nav>
         </div>
 
         <div class="topbar-right">
-          <!-- Theme Switcher (Dark Obsidian / Light Warm Bone) -->
-          <div style="display: flex; align-items: center; gap: 0.35rem;">
-            <div class="segmented-control" id="theme-segmented-control" title="Toggle Theme: Dark Obsidian / Light Bone">
-              <button class="segment-btn active" id="btn-theme-dark" title="Dark Obsidian Studio Palette">
-                <svg width="13" height="13" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><path d="M12 3a6 6 0 0 0 9 9 9 9 0 1 1-9-9Z"/></svg>
-                <span>Dark</span>
-              </button>
-              <button class="segment-btn" id="btn-theme-light" title="Light Warm Bone Palette">
-                <svg width="13" height="13" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><circle cx="12" cy="12" r="4"/><path d="M12 2v2"/><path d="M12 20v2"/><path d="m4.93 4.93 1.41 1.41"/><path d="m17.66 17.66 1.41 1.41"/><path d="M2 12h2"/><path d="M20 12h2"/><path d="m6.34 17.66-1.41 1.41"/><path d="m19.07 4.93-1.41 1.41"/></svg>
-                <span>Light</span>
-              </button>
+          <!-- Global Search with live popup -->
+          <div class="global-search-container">
+            <svg class="global-search-icon" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><circle cx="11" cy="11" r="8"/><path d="m21 21-4.3-4.3"/></svg>
+            <input type="text" class="global-search-input" id="global-search-input" placeholder="Search products, SKUs, orders..." autocomplete="off" />
+            <div class="global-search-dropdown" id="global-search-dropdown">
+              <!-- Populated dynamically via JS -->
             </div>
           </div>
 
-          <!-- Role Switcher -->
-          <div style="display: flex; align-items: center; gap: 0.4rem;">
-            <span class="text-overline" style="font-size: 0.65rem;">Role View:</span>
-            <div class="segmented-control">
-              <button class="segment-btn active" id="btn-role-admin">
-                Manager (Admin)
-              </button>
-              <button class="segment-btn" id="btn-role-staff">
-                Staff (Inspection)
-              </button>
+          <!-- Date Range Picker Dropdown (Controls all Overview widgets) -->
+          <select class="select-filter font-mono" id="overview-date-range-select" style="font-size: 0.75rem;">
+            <option value="today">Date: Today</option>
+            <option value="7days">Date: Last 7 Days</option>
+            <option value="30days" selected>Date: Last 30 Days</option>
+            <option value="this_month">Date: This Month</option>
+            <option value="custom">Date: Custom Range</option>
+          </select>
+
+          <!-- Notification Bell -->
+          <button class="icon-btn-secondary" id="btn-notifications-toggle" title="Operational Alerts">
+            <svg width="15" height="15" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.75"><path d="M6 8a6 6 0 0 1 12 0c0 7 3 9 3 9H3s3-2 3-9"/><path d="M10.3 21a1.94 1.94 0 0 0 3.4 0"/></svg>
+            <span class="notif-badge-dot"></span>
+          </button>
+          <div class="notifications-dropdown" id="notifications-dropdown">
+            <div style="padding: 0.65rem 0.85rem; border-bottom: 1px solid var(--border-subtle); display: flex; justify-content: space-between; align-items: center;">
+              <span class="text-overline">Atelier Alerts</span>
+              <span style="font-size: 0.6875rem; color: var(--accent); cursor: pointer;" id="btn-clear-notifs">Mark all read</span>
             </div>
+            <div id="notifications-list-container" style="max-height: 260px; overflow-y: auto;">
+              <!-- Populated via JS -->
+            </div>
+          </div>
+
+          <!-- Role Switcher (Admin / Manager / Staff) -->
+          <div style="display: flex; align-items: center; gap: 0.35rem;">
+            <div class="segmented-control" title="Role-Based View Switcher">
+              <button class="segment-btn active" id="btn-role-admin" data-role="admin">Admin</button>
+              <button class="segment-btn" id="btn-role-manager" data-role="manager">Manager</button>
+              <button class="segment-btn" id="btn-role-staff" data-role="staff">Staff</button>
+            </div>
+          </div>
+
+          <!-- Theme Toggle (Dark / Light) -->
+          <div class="segmented-control" title="Toggle Obsidian Dark / Warm Bone Light">
+            <button class="segment-btn active" id="btn-theme-dark" title="Obsidian Dark">
+              <svg width="12" height="12" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><path d="M12 3a6 6 0 0 0 9 9 9 9 0 1 1-9-9Z"/></svg>
+            </button>
+            <button class="segment-btn" id="btn-theme-light" title="Warm Bone Light">
+              <svg width="12" height="12" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><circle cx="12" cy="12" r="4"/><path d="M12 2v2"/><path d="M12 20v2"/></svg>
+            </button>
           </div>
 
           <!-- Prototype State Simulator -->
-          <div style="display: flex; align-items: center; gap: 0.35rem;">
-            <select class="select-filter font-mono" id="state-simulator-select" style="font-size: 0.72rem; padding: 0.35rem 0.6rem;" title="Simulate Empty / Loading / Error UI States">
-              <option value="normal">State: Normal Data</option>
-              <option value="empty">State: Empty Queue</option>
-              <option value="loading">State: Skeleton Loading</option>
-              <option value="error">State: Ledger Error</option>
-            </select>
-          </div>
-
-          <!-- Inventory Ledger Trigger -->
-          <button class="btn-secondary-action" id="btn-view-ledger" title="Open Stock Audit Ledger">
-            <svg width="14" height="14" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.75"><polygon points="12 2 2 7 12 12 22 7 12 2"/><polyline points="2 17 12 22 22 17"/><polyline points="2 12 12 17 22 12"/></svg>
-            <span>Stock Ledger</span>
-          </button>
-
-          <!-- Customer Portal Switcher -->
-          <button class="btn-portal-switch" id="btn-switch-to-customer" title="Switch to customer return request view">
-            <span>Customer Portal</span>
-            <svg width="13" height="13" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><path d="M5 12h14"/><path d="m12 5 7 7-7 7"/></svg>
-          </button>
+          <select class="select-filter font-mono" id="app-state-simulator" style="font-size: 0.72rem;" title="Simulate Empty / Loading / Error states">
+            <option value="normal">State: Normal Data</option>
+            <option value="empty">State: Empty Store</option>
+            <option value="loading">State: Skeleton Shimmer</option>
+            <option value="error">State: Sync Error</option>
+          </select>
         </div>
       </header>
 
-      <!-- MODULE WORKSPACE SCROLL CONTAINER -->
-      <main class="module-scroll-container">
+      <!-- ======================================================================
+           VIEW 1: OVERVIEW DASHBOARD MODULE (BUILT)
+           ====================================================================== -->
+      <main class="view-container active-view" id="view-overview">
+        <!-- Page Title & Header Actions -->
+        <div class="page-header-row">
+          <div class="page-title-wrap">
+            <h1 class="page-title">Executive Overview</h1>
+            <p class="page-subtitle" id="overview-period-subtitle">Showing performance metrics and inventory status for the last 30 days.</p>
+          </div>
+          <div class="page-actions-group">
+            <button class="btn-secondary-action" id="btn-customize-dashboard" title="Show or hide dashboard widgets">
+              <svg width="13" height="13" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><path d="M12 20h9"/><path d="M16.5 3.5a2.12 2.12 0 0 1 3 3L7 19l-4 1 1-4Z"/></svg>
+              <span>Customize Widgets</span>
+            </button>
+            <button class="btn-primary" id="btn-quick-add-product">
+              <svg width="14" height="14" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><line x1="12" x2="12" y1="5" y2="19"/><line x1="5" x2="19" y1="12" y2="12"/></svg>
+              <span>Add Product</span>
+            </button>
+          </div>
+        </div>
 
-        <!-- Module Header -->
-        <div class="module-header">
-          <div class="title-actions-row">
-            <div class="module-title-wrap">
-              <h1 class="module-title">Returns, Exchanges & Refunds</h1>
-              <p class="module-subtitle">Customer claim authorization, reverse logistics, sizing swaps, and inventory restoration.</p>
+        <!-- B1. KPI Strip (6 Figures with Sparklines) -->
+        <section class="widget-block" id="widget-kpi-strip">
+          <div class="kpi-strip-grid" id="overview-kpi-container">
+            <!-- Dynamically populated via JS -->
+          </div>
+        </section>
+
+        <!-- B3 & B4. Row: Sales Over Time (Line Chart) + Orders Needing Action -->
+        <div class="dashboard-grid-row">
+          <!-- B3. Sales Over Time Chart Card -->
+          <section class="dashboard-card widget-block" id="widget-sales-chart">
+            <div class="card-header-bar">
+              <div style="display: flex; align-items: baseline; gap: 0.75rem;">
+                <h3 class="card-title">Sales & Volume Trajectory</h3>
+                <span class="text-overline font-mono" id="chart-date-display">Last 30 Days</span>
+              </div>
+              <div class="card-controls">
+                <!-- Toggle Revenue / Orders -->
+                <div class="segmented-control">
+                  <button class="segment-btn active" id="btn-chart-metric-rev">Revenue ($)</button>
+                  <button class="segment-btn" id="btn-chart-metric-ord">Orders (Qty)</button>
+                </div>
+                <!-- Toggle Channel: Both / Online / POS -->
+                <select class="select-filter font-mono" id="chart-channel-select" style="font-size: 0.72rem;">
+                  <option value="both">Channel: All Channels</option>
+                  <option value="online">Channel: Online Web</option>
+                  <option value="pos">Channel: POS Atelier</option>
+                </select>
+              </div>
             </div>
-            <div class="header-action-group">
-              <span class="text-overline" style="font-size: 0.7rem; color: var(--accent); font-weight: 600;">
-                Module 16 Active • Handcrafted Quality Protocol
-              </span>
+            <div class="card-body">
+              <div class="chart-legend-row">
+                <div class="legend-item">
+                  <span class="legend-swatch" style="background-color: var(--accent);"></span>
+                  <span id="chart-legend-curr">Current Period ($68,450)</span>
+                </div>
+                <div class="legend-item">
+                  <span class="legend-swatch" style="background-color: var(--text-muted); opacity: 0.45; border: 1px dashed var(--text-muted);"></span>
+                  <span id="chart-legend-prev">Previous Period ($59,120)</span>
+                </div>
+              </div>
+              <!-- Flat Line Chart Canvas/SVG Container -->
+              <div class="chart-container-box" id="sales-chart-wrapper">
+                <svg class="chart-svg" id="sales-svg-chart" viewBox="0 0 700 240"></svg>
+                <div class="chart-crosshair-tooltip" id="chart-tooltip"></div>
+              </div>
+            </div>
+          </section>
+
+          <!-- B4. Orders Needing Action Card -->
+          <section class="dashboard-card widget-block" id="widget-action-orders">
+            <div class="card-header-bar">
+              <h3 class="card-title">Orders Needing Action</h3>
+              <span class="badge font-mono text-overline" style="background: var(--bg-muted); padding: 0.15rem 0.45rem; border-radius: 999px;">Queue</span>
+            </div>
+            <div class="card-body">
+              <table class="compact-action-table" id="action-orders-table">
+                <!-- Populated via JS -->
+              </table>
+              <div style="margin-top: auto; padding-top: 0.65rem; border-top: 1px solid var(--border-subtle); display: flex; justify-content: space-between; align-items: center; font-size: 0.72rem;">
+                <span class="text-muted">Fulfillment SLA target: 24 hrs</span>
+                <a href="javascript:void(0)" class="text-overline" style="color: var(--accent); font-weight: 600;" id="link-orders-queue">View Order Queue →</a>
+              </div>
+            </div>
+          </section>
+        </div>
+
+        <!-- B5 & B6. Row: Top Selling Products + Low Stock Alerts -->
+        <div class="dashboard-grid-half">
+          <!-- B5. Top Selling Products (Top 5) -->
+          <section class="dashboard-card widget-block" id="widget-top-products">
+            <div class="card-header-bar">
+              <div style="display: flex; align-items: baseline; gap: 0.5rem;">
+                <h3 class="card-title">Top Selling Silhouettes</h3>
+                <span class="text-overline">Top 5 by Revenue</span>
+              </div>
+              <a href="javascript:void(0)" class="text-overline" style="color: var(--accent);" id="link-goto-products">All Products →</a>
+            </div>
+            <div class="card-body" style="padding: 0;">
+              <table class="overview-data-table" style="font-size: 0.8125rem;">
+                <tbody id="top-products-table-body">
+                  <!-- Populated via JS -->
+                </tbody>
+              </table>
+            </div>
+          </section>
+
+          <!-- B6. Low Stock & Out-of-Stock Alerts -->
+          <section class="dashboard-card widget-block" id="widget-stock-alerts">
+            <div class="card-header-bar">
+              <div style="display: flex; align-items: baseline; gap: 0.5rem;">
+                <h3 class="card-title">Stock Level Warnings</h3>
+                <span class="text-overline" id="low-stock-count-badge">0 Alerts</span>
+              </div>
+              <span class="text-muted" style="font-size: 0.72rem;">Threshold: &le; 4 pcs</span>
+            </div>
+            <div class="card-body" style="padding: 0;">
+              <table class="overview-data-table" style="font-size: 0.8125rem;">
+                <tbody id="stock-alerts-table-body">
+                  <!-- Populated via JS -->
+                </tbody>
+              </table>
+            </div>
+          </section>
+        </div>
+
+        <!-- B7 & B8. Row: Category/Channel Breakdown + Recent Activity Feed -->
+        <div class="dashboard-grid-half">
+          <!-- B7. Category & Channel Breakdown -->
+          <section class="dashboard-card widget-block" id="widget-category-breakdown">
+            <div class="card-header-bar">
+              <h3 class="card-title">Category & Channel Distribution</h3>
+              <span class="text-overline">Revenue Share</span>
+            </div>
+            <div class="card-body">
+              <div>
+                <span class="text-overline" style="display: block; margin-bottom: 0.35rem;">Sales by Category</span>
+                <div class="category-bars-list" id="category-bars-container">
+                  <!-- Populated via JS -->
+                </div>
+              </div>
+              <div style="margin-top: 0.85rem; padding-top: 0.85rem; border-top: 1px solid var(--border-subtle);">
+                <span class="text-overline" style="display: block; margin-bottom: 0.25rem;">Sales by Sales Channel</span>
+                <div class="segmented-channel-bar" id="channel-segmented-bar">
+                  <!-- Segment bar populated via JS -->
+                </div>
+                <div class="channel-legend-grid" id="channel-legend-grid">
+                  <!-- Legend items populated via JS -->
+                </div>
+              </div>
+            </div>
+          </section>
+
+          <!-- B8. Recent Activity Feed -->
+          <section class="dashboard-card widget-block" id="widget-activity-feed">
+            <div class="card-header-bar">
+              <h3 class="card-title">Atelier Activity Ledger</h3>
+              <select class="select-filter font-mono" id="activity-user-filter" style="font-size: 0.72rem;">
+                <option value="all">User: All Staff</option>
+                <option value="admin">User: Admin Only</option>
+                <option value="manager">User: Manager Only</option>
+                <option value="staff">User: Staff Only</option>
+              </select>
+            </div>
+            <div class="card-body">
+              <div class="activity-feed-list" id="activity-feed-container">
+                <!-- Activity feed items populated via JS -->
+              </div>
+            </div>
+          </section>
+        </div>
+
+        <!-- B9. Quick Actions Strip -->
+        <section class="widget-block" id="widget-quick-actions" style="margin-top: 0.5rem;">
+          <div style="background-color: var(--bg-surface); border: 1px solid var(--border-hairline); border-radius: var(--radius-sm); padding: 0.85rem 1.15rem; display: flex; align-items: center; justify-content: space-between; flex-wrap: wrap; gap: 0.75rem;">
+            <div style="display: flex; align-items: center; gap: 0.5rem;">
+              <span class="text-overline" style="color: var(--accent); font-weight: 700;">Quick Operational Actions:</span>
+              <span class="text-muted" style="font-size: 0.75rem;">Frequent studio workflows</span>
+            </div>
+            <div style="display: flex; align-items: center; gap: 0.5rem; flex-wrap: wrap;">
+              <button class="btn-secondary-action" id="qa-add-product">
+                <svg width="13" height="13" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><line x1="12" x2="12" y1="5" y2="19"/><line x1="5" x2="19" y1="12" y2="12"/></svg>
+                <span>Add Product</span>
+              </button>
+              <button class="btn-secondary-action" id="qa-create-coupon">
+                <svg width="13" height="13" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><path d="M2 9a3 3 0 0 1 0 6v2a2 2 0 0 0 2 2h16a2 2 0 0 0 2-2v-2a3 3 0 0 1 0-6V7a2 2 0 0 0-2-2H4a2 2 0 0 0-2 2Z"/></svg>
+                <span>Create Coupon</span>
+              </button>
+              <button class="btn-secondary-action" id="qa-scan-barcode">
+                <svg width="13" height="13" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><path d="M3 5v14"/><path d="M8 5v14"/><path d="M12 5v14"/><path d="M17 5v14"/><path d="M21 5v14"/></svg>
+                <span>Scan Barcode</span>
+              </button>
+              <button class="btn-secondary-action" id="qa-view-orders">
+                <svg width="13" height="13" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><circle cx="8" cy="21" r="1"/><circle cx="19" cy="21" r="1"/><path d="M2.05 2.05h2l2.66 12.42a2 2 0 0 0 2 1.58h9.78a2 2 0 0 0 1.95-1.57l1.65-7.43H5.12"/></svg>
+                <span>View Orders</span>
+              </button>
+            </div>
+          </div>
+        </section>
+      </main>
+
+      <!-- ======================================================================
+           VIEW 2: PRODUCTS MODULE (LIST & GRID) (BUILT)
+           ====================================================================== -->
+      <main class="view-container" id="view-products-list">
+        <!-- Products Header Bar -->
+        <div class="page-header-row">
+          <div class="page-title-wrap">
+            <h1 class="page-title">Products Catalogue</h1>
+            <p class="page-subtitle">Manage garment collections, multi-size matrices, pricing tiers, and studio inventory.</p>
+          </div>
+          <div class="page-actions-group">
+            <!-- View Mode Switcher: Table ⇄ Grid -->
+            <div class="segmented-control" title="Toggle Layout View">
+              <button class="segment-btn active" id="btn-products-view-table">
+                <svg width="13" height="13" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><line x1="3" x2="21" y1="6" y2="6"/><line x1="3" x2="21" y1="12" y2="12"/><line x1="3" x2="21" y1="18" y2="18"/></svg>
+                <span>Table</span>
+              </button>
+              <button class="segment-btn" id="btn-products-view-grid">
+                <svg width="13" height="13" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><rect width="7" height="7" x="3" y="3" rx="1"/><rect width="7" height="7" x="14" y="3" rx="1"/><rect width="7" height="7" x="14" y="14" rx="1"/><rect width="7" height="7" x="3" y="14" rx="1"/></svg>
+                <span>Grid</span>
+              </button>
+            </div>
+            <!-- Export CSV -->
+            <button class="btn-secondary-action" id="btn-export-csv" title="Export current products list to CSV">
+              <svg width="13" height="13" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><path d="M21 15v4a2 2 0 0 1-2 2H5a2 2 0 0 1-2-2v-4"/><polyline points="7 10 12 15 17 10"/><line x1="12" x2="12" y1="15" y2="3"/></svg>
+              <span>Export CSV</span>
+            </button>
+            <!-- Import CSV -->
+            <button class="btn-secondary-action" id="btn-import-csv" title="Import products from CSV">
+              <svg width="13" height="13" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><path d="M21 15v4a2 2 0 0 1-2 2H5a2 2 0 0 1-2-2v-4"/><polyline points="17 8 12 3 7 8"/><line x1="12" x2="12" y1="3" y2="15"/></svg>
+              <span>Import CSV</span>
+            </button>
+            <!-- Add Product Button -->
+            <button class="btn-primary" id="btn-create-new-product">
+              <svg width="14" height="14" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><line x1="12" x2="12" y1="5" y2="19"/><line x1="5" x2="19" y1="12" y2="12"/></svg>
+              <span>Add Product</span>
+            </button>
+          </div>
+        </div>
+
+        <!-- Products Table Card Shell -->
+        <div class="table-card">
+          <!-- Saved Views Tabs -->
+          <div class="tabs-row" id="products-saved-views-tabs">
+            <button class="filter-tab active" data-view="all">
+              All Products <span class="tab-count" id="tab-count-all">42</span>
+            </button>
+            <button class="filter-tab" data-view="published">
+              Published <span class="tab-count" id="tab-count-published">38</span>
+            </button>
+            <button class="filter-tab" data-view="draft">
+              Drafts <span class="tab-count" id="tab-count-draft">3</span>
+            </button>
+            <button class="filter-tab" data-view="low_stock">
+              Low Stock <span class="tab-count" id="tab-count-low-stock">7</span>
+            </button>
+            <button class="filter-tab" data-view="archived">
+              Archived <span class="tab-count" id="tab-count-archived">1</span>
+            </button>
+          </div>
+
+          <!-- Filter Toolbar -->
+          <div class="toolbar-row">
+            <div class="toolbar-left">
+              <!-- Search by Name / SKU / Barcode -->
+              <div class="global-search-container" style="min-width: 240px;">
+                <svg class="global-search-icon" viewBox="0 0 24 24" fill="none" stroke="currentColor"><circle cx="11" cy="11" r="8"/><path d="m21 21-4.3-4.3"/></svg>
+                <input type="text" class="global-search-input" id="products-filter-search" placeholder="Search by name, SKU, or barcode..." style="width: 100%;" />
+              </div>
+
+              <!-- Category Filter -->
+              <select class="select-filter" id="products-filter-category">
+                <option value="all">All Categories</option>
+                <option value="Dresses">Dresses</option>
+                <option value="Kurtas & Tunics">Kurtas & Tunics</option>
+                <option value="Sarees & Drapes">Sarees & Drapes</option>
+                <option value="Tops & Shirts">Tops & Shirts</option>
+                <option value="Outerwear & Jackets">Outerwear & Jackets</option>
+                <option value="Bottoms & Skirts">Bottoms & Skirts</option>
+              </select>
+
+              <!-- Stock Level Filter -->
+              <select class="select-filter" id="products-filter-stock">
+                <option value="all">All Stock Levels</option>
+                <option value="in_stock">In Stock (&gt; 4 pcs)</option>
+                <option value="low_stock">Low Stock (1-4 pcs)</option>
+                <option value="out_stock">Out of Stock (0 pcs)</option>
+              </select>
+
+              <!-- Price Filter -->
+              <select class="select-filter" id="products-filter-price">
+                <option value="all">All Price Ranges</option>
+                <option value="under_150">Under $150</option>
+                <option value="150_250">$150 — $250</option>
+                <option value="above_250">Above $250</option>
+              </select>
+
+              <!-- Size Filter -->
+              <select class="select-filter" id="products-filter-size">
+                <option value="all">All Sizes</option>
+                <option value="XS">Size XS</option>
+                <option value="S">Size S</option>
+                <option value="M">Size M</option>
+                <option value="L">Size L</option>
+                <option value="XL">Size XL</option>
+                <option value="XXL">Size XXL</option>
+              </select>
+
+              <!-- Clear Filters -->
+              <button class="btn-secondary-action" id="btn-products-clear-filters" style="font-size: 0.75rem;">
+                <svg width="12" height="12" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><path d="M18 6 6 18"/><path d="m6 6 12 12"/></svg>
+                <span>Clear</span>
+              </button>
+            </div>
+
+            <div class="toolbar-right">
+              <span class="text-overline" style="color: var(--text-muted);" id="products-table-count-label">Showing 42 products</span>
             </div>
           </div>
 
-          <!-- Editorial Metric Ribbon -->
-          <div class="metrics-ribbon">
-            <div class="metric-cell">
-              <span class="metric-label">Needs Review</span>
-              <div class="metric-value-wrap">
-                <span class="metric-value font-serif" id="metric-pending-review">2</span>
-                <span class="metric-context">New requests</span>
+          <!-- Active Filter Chips Strip -->
+          <div class="filter-chips-strip" id="products-active-filter-chips" style="display: none;">
+            <span class="text-overline" style="font-size: 0.65rem;">Active Filters:</span>
+            <!-- Dynamically populated via JS -->
+            <button class="text-overline" style="color: var(--accent); cursor: pointer; margin-left: 0.5rem;" id="btn-chips-clear-all">Clear All</button>
+          </div>
+
+          <!-- Bulk Action Bar (Hidden until rows are selected) -->
+          <div class="bulk-actions-bar" id="products-bulk-bar">
+            <div style="display: flex; align-items: center; gap: 0.75rem;">
+              <strong id="bulk-selected-count">0 items selected</strong>
+              <span class="text-muted">|</span>
+              <span class="text-overline">Bulk Actions:</span>
+            </div>
+            <div style="display: flex; align-items: center; gap: 0.45rem;">
+              <button class="btn-secondary" id="bulk-btn-publish" style="padding: 0.25rem 0.6rem; font-size: 0.72rem;">Publish</button>
+              <button class="btn-secondary" id="bulk-btn-unpublish" style="padding: 0.25rem 0.6rem; font-size: 0.72rem;">Unpublish</button>
+              <button class="btn-secondary" id="bulk-btn-archive" style="padding: 0.25rem 0.6rem; font-size: 0.72rem;">Archive</button>
+              <button class="btn-secondary" id="bulk-btn-discount" style="padding: 0.25rem 0.6rem; font-size: 0.72rem;">Apply 10% Off</button>
+              <button class="btn-danger-outline" id="bulk-btn-delete" style="padding: 0.25rem 0.6rem; font-size: 0.72rem;">Delete Selected</button>
+            </div>
+          </div>
+
+          <!-- Main Table Container -->
+          <div id="products-table-container">
+            <div class="table-responsive">
+              <table class="data-table" id="products-data-table">
+                <thead>
+                  <tr>
+                    <th style="width: 36px; text-align: center;">
+                      <input type="checkbox" id="th-select-all-products" title="Select All Products" />
+                    </th>
+                    <th style="width: 50px;">Image</th>
+                    <th class="sortable" data-sort="name">Product Name & SKU</th>
+                    <th class="sortable" data-sort="category">Category</th>
+                    <th class="sortable" data-sort="price">Price</th>
+                    <th class="sortable" data-sort="stock">Stock</th>
+                    <th class="sortable" data-sort="status">Status</th>
+                    <th class="sortable" data-sort="updated">Last Updated</th>
+                    <th style="text-align: right; width: 140px;">Actions</th>
+                  </tr>
+                </thead>
+                <tbody id="products-table-body">
+                  <!-- Populated via JS -->
+                </tbody>
+              </table>
+            </div>
+          </div>
+
+          <!-- Main Grid View Container (Hidden by default) -->
+          <div id="products-grid-container" style="display: none;">
+            <div class="products-cards-grid" id="products-grid-cards">
+              <!-- Populated via JS -->
+            </div>
+          </div>
+
+          <!-- Pagination Bar -->
+          <div class="pagination-bar">
+            <div style="display: flex; align-items: center; gap: 0.5rem;">
+              <span>Rows per page:</span>
+              <select class="select-filter font-mono" id="products-rows-per-page" style="padding: 0.2rem 0.5rem; font-size: 0.72rem;">
+                <option value="10">10</option>
+                <option value="25" selected>25</option>
+                <option value="50">50</option>
+              </select>
+            </div>
+            <div class="pagination-pages" id="products-pagination-controls">
+              <!-- Populated via JS -->
+            </div>
+          </div>
+        </div>
+      </main>
+
+      <!-- ======================================================================
+           VIEW 3: PRODUCT ADD / EDIT DEDICATED FULL PAGE (8 TABS) (BUILT)
+           ====================================================================== -->
+      <main class="view-container" id="view-product-editor">
+        <!-- Sticky Save Header -->
+        <div class="editor-sticky-header">
+          <div style="display: flex; align-items: center; gap: 0.75rem;">
+            <button class="btn-secondary-action" id="btn-editor-back" title="Return to Products List">
+              <svg width="14" height="14" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><path d="m12 19-7-7 7-7"/><path d="M19 12H5"/></svg>
+              <span>Back to Products</span>
+            </button>
+            <div style="display: flex; flex-direction: column;">
+              <span class="text-overline" id="editor-action-label">Editing Product</span>
+              <strong style="font-family: var(--font-serif); font-size: 1.15rem;" id="editor-product-heading">Linen Wrap Midi Dress</strong>
+            </div>
+            <span class="status-pill status-published" id="editor-status-badge">Published</span>
+            <span class="text-overline" id="editor-unsaved-badge" style="display: none; background: var(--status-requested-bg); color: var(--status-requested-text); padding: 0.15rem 0.45rem; border-radius: 999px;">Unsaved Changes</span>
+          </div>
+
+          <div style="display: flex; align-items: center; gap: 0.5rem;">
+            <button class="btn-danger-outline" id="btn-editor-delete-product">Delete</button>
+            <button class="btn-secondary" id="btn-editor-save-draft">Save Draft</button>
+            <button class="btn-primary" id="btn-editor-publish">Publish Product</button>
+          </div>
+        </div>
+
+        <!-- 8 Tabs Navigation Header -->
+        <div class="editor-tabs-nav" id="editor-tabs-container">
+          <button class="editor-tab-btn active" data-tab="tab-basic">1. Basic Info</button>
+          <button class="editor-tab-btn" data-tab="tab-pricing">2. Pricing & Cost</button>
+          <button class="editor-tab-btn" data-tab="tab-variants">3. Variants & Sizes</button>
+          <button class="editor-tab-btn" data-tab="tab-media">4. Media & Photos</button>
+          <button class="editor-tab-btn" data-tab="tab-inventory">5. Inventory Policy</button>
+          <button class="editor-tab-btn" data-tab="tab-categories">6. Categories & Organization</button>
+          <button class="editor-tab-btn" data-tab="tab-seo">7. SEO & Visibility</button>
+          <button class="editor-tab-btn" data-tab="tab-shipping">8. Shipping & Returns</button>
+        </div>
+
+        <!-- Editor Form Layout: Form Pane + Live Customer Preview Pane -->
+        <div class="editor-main-layout">
+          <!-- Left: Active Form Pane -->
+          <div class="editor-form-pane" id="editor-form-pane">
+
+            <!-- TAB 1: BASIC INFO -->
+            <div class="editor-tab-content active" id="pane-tab-basic">
+              <span class="text-overline" style="color: var(--accent);">Step 1 of 8</span>
+              <h3 style="font-family: var(--font-serif); font-size: 1.3rem; margin-bottom: 0.75rem;">Garment Overview & Identity</h3>
+              
+              <div style="display: flex; flex-direction: column; gap: 0.85rem;">
+                <div>
+                  <label class="text-overline" style="display: block; margin-bottom: 0.25rem;">Product Name *</label>
+                  <input type="text" class="select-filter" id="edit-product-name" style="width: 100%; font-size: 0.875rem; padding: 0.5rem 0.75rem;" placeholder="e.g. Linen Wrap Midi Dress" />
+                  <span class="text-muted" style="font-size: 0.6875rem;">Visible to customer on website, receipts, and order confirmations.</span>
+                </div>
+
+                <div style="display: grid; grid-template-columns: 1fr 1fr; gap: 0.75rem;">
+                  <div>
+                    <label class="text-overline" style="display: block; margin-bottom: 0.25rem;">URL Slug (Auto-generated)</label>
+                    <input type="text" class="select-filter font-mono" id="edit-product-slug" style="width: 100%; font-size: 0.78rem;" />
+                  </div>
+                  <div>
+                    <label class="text-overline" style="display: block; margin-bottom: 0.25rem;">Master SKU *</label>
+                    <input type="text" class="select-filter font-mono" id="edit-product-sku" style="width: 100%; font-size: 0.78rem;" placeholder="e.g. LWD-IND" />
+                    <span id="sku-error-msg" style="color: var(--status-rejected-text); font-size: 0.6875rem; display: none;">SKU already exists in catalogue!</span>
+                  </div>
+                </div>
+
+                <div>
+                  <label class="text-overline" style="display: block; margin-bottom: 0.25rem;">Short Catchphrase / Summary</label>
+                  <input type="text" class="select-filter" id="edit-product-short-desc" style="width: 100%; font-size: 0.8125rem;" placeholder="e.g. Signature tie-waist wrap silhouette in pure organic Belgian flax linen." />
+                </div>
+
+                <div>
+                  <label class="text-overline" style="display: block; margin-bottom: 0.25rem;">Editorial Long Description</label>
+                  <!-- Simple Rich Text Formatting Toolbar Simulation -->
+                  <div style="background: var(--bg-subtle); border: 1px solid var(--border-hairline); border-bottom: none; border-radius: var(--radius-xs) var(--radius-xs) 0 0; padding: 0.35rem 0.65rem; display: flex; gap: 0.35rem;">
+                    <button type="button" class="btn-secondary" style="padding: 0.15rem 0.4rem; font-weight: 700; font-size: 0.7rem;">B</button>
+                    <button type="button" class="btn-secondary" style="padding: 0.15rem 0.4rem; font-style: italic; font-size: 0.7rem;">I</button>
+                    <button type="button" class="btn-secondary" style="padding: 0.15rem 0.4rem; font-size: 0.7rem;">• List</button>
+                  </div>
+                  <textarea class="select-filter" id="edit-product-long-desc" rows="5" style="width: 100%; border-radius: 0 0 var(--radius-xs) var(--radius-xs);" placeholder="Detail the artisanal heritage, handloom weaving process, fit notes, and styling instructions..."></textarea>
+                </div>
+
+                <div style="display: grid; grid-template-columns: repeat(3, 1fr); gap: 0.75rem;">
+                  <div>
+                    <label class="text-overline" style="display: block; margin-bottom: 0.25rem;">Fabric / Material</label>
+                    <input type="text" class="select-filter" id="edit-product-fabric" style="width: 100%;" placeholder="e.g. 100% Belgian Linen" />
+                  </div>
+                  <div>
+                    <label class="text-overline" style="display: block; margin-bottom: 0.25rem;">Care Instructions</label>
+                    <input type="text" class="select-filter" id="edit-product-care" style="width: 100%;" placeholder="e.g. Dry clean only" />
+                  </div>
+                  <div>
+                    <label class="text-overline" style="display: block; margin-bottom: 0.25rem;">Artisanal Origin</label>
+                    <input type="text" class="select-filter" id="edit-product-origin" style="width: 100%;" placeholder="e.g. Chanderi, MP" />
+                  </div>
+                </div>
+
+                <div style="display: grid; grid-template-columns: 1fr 1fr; gap: 0.75rem;">
+                  <div>
+                    <label class="text-overline" style="display: block; margin-bottom: 0.25rem;">Collection</label>
+                    <select class="select-filter" id="edit-product-collection" style="width: 100%;">
+                      <option value="Festive Resort '26">Festive Resort '26</option>
+                      <option value="Heirloom Artisanal Edit">Heirloom Artisanal Edit</option>
+                      <option value="Monsoon Handlooms">Monsoon Handlooms</option>
+                      <option value="Pure Linen Core">Pure Linen Core</option>
+                      <option value="Studio Archive">Studio Archive</option>
+                    </select>
+                  </div>
+                  <div>
+                    <label class="text-overline" style="display: block; margin-bottom: 0.25rem;">Tags (Comma-separated)</label>
+                    <input type="text" class="select-filter" id="edit-product-tags" style="width: 100%;" placeholder="bestseller, handloom, silk" />
+                  </div>
+                </div>
               </div>
             </div>
-            <div class="metric-cell">
-              <span class="metric-label">Consignments In Transit</span>
-              <div class="metric-value-wrap">
-                <span class="metric-value font-serif" id="metric-in-transit">3</span>
-                <span class="metric-context">BlueDart / DTDC</span>
+
+            <!-- TAB 2: PRICING -->
+            <div class="editor-tab-content" id="pane-tab-pricing" style="display: none;">
+              <span class="text-overline" style="color: var(--accent);">Step 2 of 8</span>
+              <h3 style="font-family: var(--font-serif); font-size: 1.3rem; margin-bottom: 0.75rem;">Pricing Strategy & Margin Calculation</h3>
+              
+              <div style="display: flex; flex-direction: column; gap: 0.85rem;">
+                <div style="display: grid; grid-template-columns: 1fr 1fr; gap: 0.75rem;">
+                  <div>
+                    <label class="text-overline" style="display: block; margin-bottom: 0.25rem;">Regular Price (USD $) *</label>
+                    <input type="number" class="select-filter font-mono" id="edit-regular-price" style="width: 100%; font-size: 1rem; font-weight: 600;" placeholder="195.00" />
+                  </div>
+                  <div>
+                    <label class="text-overline" style="display: block; margin-bottom: 0.25rem;">Promotional Sale Price (USD $)</label>
+                    <input type="number" class="select-filter font-mono" id="edit-sale-price" style="width: 100%; font-size: 1rem;" placeholder="Optional discount price" />
+                    <span id="sale-price-warning" style="color: var(--status-rejected-text); font-size: 0.6875rem; display: none;">Warning: Sale price cannot be higher than Regular price!</span>
+                  </div>
+                </div>
+
+                <!-- Admin Only: Cost Price & Margin Calculation -->
+                <div id="editor-cost-margin-container" style="background-color: var(--bg-subtle); border: 1px solid var(--border-hairline); border-radius: var(--radius-sm); padding: 1rem;">
+                  <div style="display: flex; justify-content: space-between; align-items: baseline; margin-bottom: 0.5rem;">
+                    <span class="text-overline" style="color: var(--accent);">Admin Confidential: Cost & Margins</span>
+                    <span class="text-muted" style="font-size: 0.6875rem;">Hidden from Staff & Store Managers</span>
+                  </div>
+                  <div style="display: grid; grid-template-columns: 1fr 1fr; gap: 0.75rem;">
+                    <div>
+                      <label class="text-overline" style="display: block; margin-bottom: 0.25rem;">Artisan Procurement Cost ($)</label>
+                      <input type="number" class="select-filter font-mono" id="edit-cost-price" style="width: 100%; font-size: 0.95rem;" placeholder="68.00" />
+                    </div>
+                    <div>
+                      <label class="text-overline" style="display: block; margin-bottom: 0.25rem;">Gross Profit Margin</label>
+                      <div class="select-filter font-mono" id="edit-margin-display" style="width: 100%; background: var(--bg-surface); font-weight: 700; color: var(--stock-in); display: flex; align-items: center;">
+                        65.1% Margin ($127 profit/unit)
+                      </div>
+                    </div>
+                  </div>
+                </div>
+
+                <div style="display: grid; grid-template-columns: 1fr 1fr; gap: 0.75rem;">
+                  <div>
+                    <label class="text-overline" style="display: block; margin-bottom: 0.25rem;">Tax Class</label>
+                    <select class="select-filter" id="edit-tax-class" style="width: 100%;">
+                      <option value="Standard 18%">Standard Luxury Apparel (18%)</option>
+                      <option value="Reduced 5%">Handloom Essential (5%)</option>
+                      <option value="Zero-rate">Zero-rated Export (0%)</option>
+                    </select>
+                  </div>
+                  <div>
+                    <label class="text-overline" style="display: block; margin-bottom: 0.25rem;">Compare-at Price ($)</label>
+                    <input type="number" class="select-filter font-mono" id="edit-compare-price" style="width: 100%;" placeholder="Strikethrough original MSRP" />
+                  </div>
+                </div>
               </div>
             </div>
-            <div class="metric-cell">
-              <span class="metric-label">Exchanges in Pipeline</span>
-              <div class="metric-value-wrap">
-                <span class="metric-value font-serif" id="metric-exchanges">3</span>
-                <span class="metric-context">Size & Product swaps</span>
+
+            <!-- TAB 3: VARIANTS & SIZES -->
+            <div class="editor-tab-content" id="pane-tab-variants" style="display: none;">
+              <span class="text-overline" style="color: var(--accent);">Step 3 of 8</span>
+              <h3 style="font-family: var(--font-serif); font-size: 1.3rem; margin-bottom: 0.75rem;">Variant Matrix & Size Breakdown</h3>
+
+              <!-- Color Swatch Builder -->
+              <div style="margin-bottom: 0.85rem;">
+                <label class="text-overline" style="display: block; margin-bottom: 0.35rem;">Active Color Swatches</label>
+                <div class="swatches-row" id="editor-swatches-selector">
+                  <!-- Swatches populated via JS -->
+                </div>
+              </div>
+
+              <!-- Sizes Selector -->
+              <div style="margin-bottom: 0.85rem;">
+                <label class="text-overline" style="display: block; margin-bottom: 0.35rem;">Size Run Options</label>
+                <div style="display: flex; gap: 0.35rem; flex-wrap: wrap;" id="editor-sizes-selector">
+                  <!-- Size pills populated via JS -->
+                </div>
+              </div>
+
+              <!-- Bulk Fill Tool -->
+              <div style="background: var(--bg-subtle); border: 1px solid var(--border-hairline); border-radius: var(--radius-xs); padding: 0.65rem 0.85rem; display: flex; align-items: center; justify-content: space-between; flex-wrap: wrap; gap: 0.5rem; margin-bottom: 0.75rem;">
+                <span class="text-overline">Bulk Fill Matrix:</span>
+                <div style="display: flex; align-items: center; gap: 0.4rem;">
+                  <input type="number" class="select-filter font-mono" id="matrix-bulk-stock-input" placeholder="Stock Qty" style="width: 90px; padding: 0.25rem 0.45rem;" />
+                  <button type="button" class="btn-secondary" id="btn-apply-bulk-stock" style="font-size: 0.72rem; padding: 0.25rem 0.55rem;">Apply to All Sizes</button>
+                </div>
+              </div>
+
+              <!-- Variant Matrix Table -->
+              <div style="border: 1px solid var(--border-hairline); border-radius: var(--radius-xs); overflow-x: auto; max-height: 280px;">
+                <table class="variant-matrix-table" id="editor-variant-matrix-table">
+                  <thead>
+                    <tr>
+                      <th>Variant SKU</th>
+                      <th>Size</th>
+                      <th>Color</th>
+                      <th>Price ($)</th>
+                      <th>Stock Qty</th>
+                      <th>Barcode</th>
+                    </tr>
+                  </thead>
+                  <tbody id="editor-variant-matrix-body">
+                    <!-- Matrix rows generated via JS -->
+                  </tbody>
+                </table>
               </div>
             </div>
-            <div class="metric-cell">
-              <span class="metric-label">Refunds Processed (Month)</span>
-              <div class="metric-value-wrap">
-                <span class="metric-value font-serif" id="metric-refunds-month">₹16,500</span>
-                <span class="metric-context">Settled via Razorpay</span>
+
+            <!-- TAB 4: MEDIA & PHOTOS -->
+            <div class="editor-tab-content" id="pane-tab-media" style="display: none;">
+              <span class="text-overline" style="color: var(--accent);">Step 4 of 8</span>
+              <h3 style="font-family: var(--font-serif); font-size: 1.3rem; margin-bottom: 0.75rem;">Garment Imagery & Editorial Assets</h3>
+
+              <div style="border: 1px dashed var(--border-hairline); border-radius: var(--radius-sm); padding: 1.5rem; text-align: center; background-color: var(--bg-subtle); cursor: pointer;" id="editor-media-dropzone">
+                <svg width="28" height="28" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.5" style="margin: 0 auto 0.5rem auto; display: block; color: var(--text-muted);"><path d="M14.5 4h-5L7 7H4a2 2 0 0 0-2 2v9a2 2 0 0 0 2 2h16a2 2 0 0 0 2-2V9a2 2 0 0 0-2-2h-3l-2.5-3z"/><circle cx="12" cy="13" r="3"/></svg>
+                <div style="font-weight: 600; font-size: 0.8125rem;">Drag studio photos here or click to simulate upload</div>
+                <div style="font-size: 0.72rem; color: var(--text-muted); margin-top: 0.2rem;">Accepts high-res JPG, PNG, WEBP (Recommended: 1200 x 1600 px portrait)</div>
+              </div>
+
+              <!-- Media Cards Grid -->
+              <div style="display: grid; grid-template-columns: repeat(auto-fill, minmax(130px, 1fr)); gap: 0.75rem; margin-top: 0.85rem;" id="editor-media-preview-list">
+                <!-- Image thumbnails with primary badge -->
+              </div>
+            </div>
+
+            <!-- TAB 5: INVENTORY POLICY -->
+            <div class="editor-tab-content" id="pane-tab-inventory" style="display: none;">
+              <span class="text-overline" style="color: var(--accent);">Step 5 of 8</span>
+              <h3 style="font-family: var(--font-serif); font-size: 1.3rem; margin-bottom: 0.75rem;">Inventory Tracking & Stock Management</h3>
+
+              <div style="display: flex; flex-direction: column; gap: 0.85rem;">
+                <div style="display: flex; justify-content: space-between; align-items: center; padding: 0.75rem 1rem; background: var(--bg-subtle); border: 1px solid var(--border-hairline); border-radius: var(--radius-sm);">
+                  <div>
+                    <strong>Track Stock for this Product</strong>
+                    <div style="font-size: 0.72rem; color: var(--text-muted);">Automatically decrement stock on orders and increment on approved returns.</div>
+                  </div>
+                  <input type="checkbox" id="edit-track-stock" checked style="width: 18px; height: 18px;" />
+                </div>
+
+                <div style="display: grid; grid-template-columns: 1fr 1fr; gap: 0.75rem;">
+                  <div>
+                    <label class="text-overline" style="display: block; margin-bottom: 0.25rem;">Total Stock (Aggregated)</label>
+                    <input type="number" class="select-filter font-mono" id="edit-total-stock-display" readonly style="width: 100%; font-weight: 700; background: var(--bg-subtle);" />
+                  </div>
+                  <div>
+                    <label class="text-overline" style="display: block; margin-bottom: 0.25rem;">Low Stock Threshold Alert</label>
+                    <input type="number" class="select-filter font-mono" id="edit-low-stock-threshold" value="4" style="width: 100%;" />
+                  </div>
+                </div>
+
+                <div style="display: flex; justify-content: space-between; align-items: center; padding: 0.75rem 1rem; border: 1px solid var(--border-hairline); border-radius: var(--radius-sm);">
+                  <div>
+                    <strong>Allow Backorders / Made-to-Order</strong>
+                    <div style="font-size: 0.72rem; color: var(--text-muted);">Allow customers to place pre-orders when inventory reaches zero.</div>
+                  </div>
+                  <input type="checkbox" id="edit-allow-backorders" style="width: 18px; height: 18px;" />
+                </div>
+
+                <!-- Stock Movement Audit Log for this product -->
+                <div>
+                  <span class="text-overline" style="display: block; margin-bottom: 0.35rem;">Recent Stock Adjustments for this Silhouette</span>
+                  <div style="border: 1px solid var(--border-hairline); border-radius: var(--radius-xs); overflow-x: auto;">
+                    <table class="compact-action-table" style="font-size: 0.75rem; padding: 0 0.5rem;">
+                      <tbody id="editor-stock-movement-log">
+                        <!-- Populated via JS -->
+                      </tbody>
+                    </table>
+                  </div>
+                </div>
+              </div>
+            </div>
+
+            <!-- TAB 6: CATEGORIES & ORGANISATION -->
+            <div class="editor-tab-content" id="pane-tab-categories" style="display: none;">
+              <span class="text-overline" style="color: var(--accent);">Step 6 of 8</span>
+              <h3 style="font-family: var(--font-serif); font-size: 1.3rem; margin-bottom: 0.75rem;">Category Hierarchy & Cross-Sells</h3>
+
+              <div style="display: flex; flex-direction: column; gap: 0.85rem;">
+                <div style="display: grid; grid-template-columns: 1fr 1fr; gap: 0.75rem;">
+                  <div>
+                    <label class="text-overline" style="display: block; margin-bottom: 0.25rem;">Primary Category *</label>
+                    <select class="select-filter" id="edit-primary-category" style="width: 100%;">
+                      <option value="Dresses">Dresses</option>
+                      <option value="Kurtas & Tunics">Kurtas & Tunics</option>
+                      <option value="Sarees & Drapes">Sarees & Drapes</option>
+                      <option value="Tops & Shirts">Tops & Shirts</option>
+                      <option value="Outerwear & Jackets">Outerwear & Jackets</option>
+                      <option value="Bottoms & Skirts">Bottoms & Skirts</option>
+                    </select>
+                  </div>
+                  <div>
+                    <label class="text-overline" style="display: block; margin-bottom: 0.25rem;">Sub-Category</label>
+                    <select class="select-filter" id="edit-sub-category" style="width: 100%;">
+                      <!-- Populated dynamically based on category -->
+                    </select>
+                  </div>
+                </div>
+
+                <div>
+                  <label class="text-overline" style="display: block; margin-bottom: 0.25rem;">Complete the Look (Cross-Sell Recommendations)</label>
+                  <select class="select-filter" id="edit-cross-sells" style="width: 100%;">
+                    <option value="none">-- Select recommended matching piece --</option>
+                    <option value="PROD-1006">Pleated Tussar Silk Culottes</option>
+                    <option value="PROD-1008">Handloom Cotton Jamdani Saree</option>
+                    <option value="PROD-1011">Bespoke Linen Peplum Blouse</option>
+                  </select>
+                </div>
+              </div>
+            </div>
+
+            <!-- TAB 7: SEO & VISIBILITY -->
+            <div class="editor-tab-content" id="pane-tab-seo" style="display: none;">
+              <span class="text-overline" style="color: var(--accent);">Step 7 of 8</span>
+              <h3 style="font-family: var(--font-serif); font-size: 1.3rem; margin-bottom: 0.75rem;">Search Engine Optimization & SERP Preview</h3>
+
+              <div style="display: flex; flex-direction: column; gap: 0.85rem;">
+                <div>
+                  <label class="text-overline" style="display: block; margin-bottom: 0.25rem;">SEO Page Title</label>
+                  <input type="text" class="select-filter" id="edit-seo-title" style="width: 100%;" placeholder="Linen Wrap Midi Dress | Handcrafted Atelier" />
+                </div>
+                <div>
+                  <label class="text-overline" style="display: block; margin-bottom: 0.25rem;">Meta Description</label>
+                  <textarea class="select-filter" id="edit-seo-desc" rows="3" style="width: 100%;" placeholder="Summarize for Google search snippets (150-160 characters recommended)..."></textarea>
+                </div>
+
+                <!-- Live Google SERP Card Preview -->
+                <div>
+                  <span class="text-overline" style="display: block; margin-bottom: 0.35rem;">Live Google Search Snippet Preview:</span>
+                  <div class="serp-card-box">
+                    <span class="serp-url" id="serp-preview-url">https://brandname.atelier/products/linen-wrap-midi-dress</span>
+                    <a href="javascript:void(0)" class="serp-title" id="serp-preview-title">Linen Wrap Midi Dress | Handcrafted Atelier Collection</a>
+                    <p class="serp-desc" id="serp-preview-desc">Shop our bestselling linen wrap dress in natural indigo and raw sand hues. Breathable organic flax linen tailored for versatile comfort.</p>
+                  </div>
+                </div>
+
+                <div style="display: flex; justify-content: space-between; align-items: center; padding: 0.75rem 1rem; background: var(--bg-subtle); border: 1px solid var(--border-hairline); border-radius: var(--radius-sm);">
+                  <div>
+                    <strong>Feature on Homepage Hero Carousel</strong>
+                    <div style="font-size: 0.72rem; color: var(--text-muted);">Displays prominently on the customer storefront homepage.</div>
+                  </div>
+                  <input type="checkbox" id="edit-featured-toggle" style="width: 18px; height: 18px;" />
+                </div>
+              </div>
+            </div>
+
+            <!-- TAB 8: SHIPPING & RETURNS -->
+            <div class="editor-tab-content" id="pane-tab-shipping" style="display: none;">
+              <span class="text-overline" style="color: var(--accent);">Step 8 of 8</span>
+              <h3 style="font-family: var(--font-serif); font-size: 1.3rem; margin-bottom: 0.75rem;">Logistics, Weight & Return Window</h3>
+
+              <div style="display: flex; flex-direction: column; gap: 0.85rem;">
+                <div style="display: grid; grid-template-columns: 1fr 1fr; gap: 0.75rem;">
+                  <div>
+                    <label class="text-overline" style="display: block; margin-bottom: 0.25rem;">Dead Weight (kg)</label>
+                    <input type="number" step="0.01" class="select-filter font-mono" id="edit-weight-kg" value="0.45" style="width: 100%;" />
+                  </div>
+                  <div>
+                    <label class="text-overline" style="display: block; margin-bottom: 0.25rem;">Package Dimensions (L x W x H cm)</label>
+                    <input type="text" class="select-filter font-mono" id="edit-dimensions-cm" value="35 x 25 x 3 cm" style="width: 100%;" />
+                  </div>
+                </div>
+
+                <div style="display: flex; justify-content: space-between; align-items: center; padding: 0.75rem 1rem; border: 1px solid var(--border-hairline); border-radius: var(--radius-sm);">
+                  <div>
+                    <strong>Eligible for Return / Size Exchange</strong>
+                    <div style="font-size: 0.72rem; color: var(--text-muted);">Enables customer self-service reverse logistics under Module 16 rules.</div>
+                  </div>
+                  <input type="checkbox" id="edit-returnable-toggle" checked style="width: 18px; height: 18px;" />
+                </div>
+
+                <div>
+                  <label class="text-overline" style="display: block; margin-bottom: 0.25rem;">Return Window (Days from Delivery)</label>
+                  <input type="number" class="select-filter font-mono" id="edit-return-window-days" value="7" style="width: 120px;" />
+                  <span class="text-muted" style="font-size: 0.6875rem; margin-left: 0.5rem;">Boutique standard is 7 days from confirmed delivery.</span>
+                </div>
+              </div>
+            </div>
+
+          </div>
+
+          <!-- Right: Live Customer Storefront Preview Pane (Desktop / Mobile toggle) -->
+          <div class="editor-preview-pane">
+            <div style="display: flex; justify-content: space-between; align-items: center;">
+              <div>
+                <span class="text-overline" style="color: var(--accent);">Customer Experience</span>
+                <h4 style="font-family: var(--font-serif); font-size: 1.05rem;">Live Storefront Preview</h4>
+              </div>
+              <div class="segmented-control" title="Toggle Desktop vs Mobile preview screen">
+                <button type="button" class="segment-btn active" id="btn-preview-desktop">Desktop</button>
+                <button type="button" class="segment-btn" id="btn-preview-mobile">Mobile</button>
+              </div>
+            </div>
+
+            <!-- Preview Mock Screen -->
+            <div class="preview-mock-screen" id="preview-screen-wrapper">
+              <div style="height: 180px; background-color: var(--bg-subtle); display: flex; align-items: center; justify-content: center; position: relative;">
+                <svg width="36" height="36" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.5" style="color: var(--text-muted);"><path d="M20.38 3.46 16 2a4 4 0 0 1-8 0L3.62 3.46a2 2 0 0 0-1.34 2.23l.58 3.47a1 1 0 0 0 .99.84H6v10c0 1.1.9 2 2 2h8a2 2 0 0 0 2-2V10h2.15a1 1 0 0 0 .99-.84l.58-3.47a2 2 0 0 0-1.34-2.23z"/></svg>
+                <span class="text-overline" style="position: absolute; top: 8px; left: 8px; background: rgba(0,0,0,0.6); color: #fff; padding: 2px 6px; border-radius: 2px;" id="preview-badge-status">In Stock</span>
+              </div>
+              <div style="padding: 0.85rem; background-color: var(--bg-surface); display: flex; flex-direction: column; gap: 0.35rem;">
+                <span class="text-overline" id="preview-cat-text">Dresses</span>
+                <strong style="font-family: var(--font-serif); font-size: 1.1rem;" id="preview-name-text">Linen Wrap Midi Dress</strong>
+                <div style="display: flex; align-items: baseline; gap: 0.5rem;">
+                  <span class="font-mono" style="font-size: 1.1rem; font-weight: 700; color: var(--text-primary);" id="preview-price-text">$195</span>
+                  <span class="font-mono text-muted" style="text-decoration: line-through; font-size: 0.78rem;" id="preview-compare-text"></span>
+                </div>
+                <div style="font-size: 0.75rem; color: var(--text-secondary); line-height: 1.35; margin-top: 0.25rem;" id="preview-desc-text">
+                  Signature tie-waist wrap silhouette in pure organic Belgian flax linen.
+                </div>
+                <div style="display: flex; gap: 0.35rem; margin-top: 0.5rem;" id="preview-sizes-row">
+                  <span style="font-size: 0.65rem; border: 1px solid var(--border-hairline); padding: 2px 6px; border-radius: 2px;">XS</span>
+                  <span style="font-size: 0.65rem; border: 1px solid var(--border-hairline); padding: 2px 6px; border-radius: 2px;">S</span>
+                  <span style="font-size: 0.65rem; border: 1px solid var(--border-hairline); padding: 2px 6px; border-radius: 2px;">M</span>
+                  <span style="font-size: 0.65rem; border: 1px solid var(--border-hairline); padding: 2px 6px; border-radius: 2px;">L</span>
+                </div>
               </div>
             </div>
           </div>
         </div>
+      </main>
 
-        <!-- MAIN DATA TABLE CARD -->
+      <!-- ======================================================================
+           VIEW 4: MODULE 16 — RETURNS, EXCHANGES & REFUNDS (BUILT)
+           ====================================================================== -->
+      <main class="view-container" id="view-returns">
+        <!-- Page Title & Header Actions -->
+        <div class="page-header-row">
+          <div class="page-title-wrap">
+            <h1 class="page-title">Returns, Exchanges & Refunds</h1>
+            <p class="page-subtitle">Customer claim authorization, reverse logistics, sizing swaps, and inventory restoration.</p>
+          </div>
+          <div class="page-actions-group">
+            <button class="btn-secondary-action" id="btn-view-ledger" title="Open Stock Audit Ledger">
+              <svg width="13" height="13" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><polygon points="12 2 2 7 12 12 22 7 12 2"/><polyline points="2 17 12 22 22 17"/><polyline points="2 12 12 17 22 12"/></svg>
+              <span>Stock Ledger</span>
+            </button>
+            <button class="btn-portal-switch" id="btn-switch-to-customer" title="Open Customer Return Concierge Screen">
+              <span>Customer Portal &rarr;</span>
+            </button>
+          </div>
+        </div>
+
+        <!-- Editorial Metric Ribbon -->
+        <div class="metrics-ribbon" style="margin-bottom: 1.25rem;">
+          <div class="metric-cell">
+            <div class="metric-header-row">
+              <span class="metric-label">Needs Review</span>
+              <span class="metric-status-dot" style="background-color: var(--stock-low); box-shadow: 0 0 0 2px rgba(229, 178, 89, 0.2);" title="Pending Claims"></span>
+            </div>
+            <div class="metric-value-wrap">
+              <span class="metric-value font-serif" id="metric-pending-review">2</span>
+              <span class="metric-context">New claims</span>
+            </div>
+          </div>
+
+          <div class="metric-cell">
+            <div class="metric-header-row">
+              <span class="metric-label">Consignments In Transit</span>
+              <span class="metric-status-dot" style="background-color: var(--status-received-text); box-shadow: 0 0 0 2px rgba(113, 168, 212, 0.2);" title="Reverse Shipments"></span>
+            </div>
+            <div class="metric-value-wrap">
+              <span class="metric-value font-serif" id="metric-in-transit">3</span>
+              <span class="metric-context">BlueDart / DTDC</span>
+            </div>
+          </div>
+
+          <div class="metric-cell">
+            <div class="metric-header-row">
+              <span class="metric-label">Exchanges in Pipeline</span>
+              <span class="metric-status-dot" style="background-color: var(--type-exchange-text); box-shadow: 0 0 0 2px rgba(99, 204, 196, 0.2);" title="Active Swaps"></span>
+            </div>
+            <div class="metric-value-wrap">
+              <span class="metric-value font-serif" id="metric-exchanges">3</span>
+              <span class="metric-context">Size & Product swaps</span>
+            </div>
+          </div>
+
+          <div class="metric-cell">
+            <div class="metric-header-row">
+              <span class="metric-label">Refunds Processed (Month)</span>
+              <span class="metric-status-dot" style="background-color: var(--status-refunded-text); box-shadow: 0 0 0 2px rgba(106, 193, 134, 0.2);" title="Completed Reimbursements"></span>
+            </div>
+            <div class="metric-value-wrap">
+              <span class="metric-value font-serif" id="metric-refunds-month">$320</span>
+              <span class="metric-context">Settled via Stripe</span>
+            </div>
+          </div>
+        </div>
+
+        <!-- Main Returns Table Card -->
         <div class="table-card">
           <!-- Status Tabs -->
-          <div class="tabs-row" id="filter-tabs-container">
+          <div class="tabs-row" id="returns-filter-tabs">
             <button class="filter-tab active" data-tab="all">
-              All Requests <span class="tab-count">7</span>
+              All Requests <span class="tab-count" id="ret-count-all">8</span>
             </button>
             <button class="filter-tab" data-tab="needs_action">
-              Needs Action <span class="tab-count">4</span>
+              Needs Action <span class="tab-count" id="ret-count-action">4</span>
             </button>
             <button class="filter-tab" data-tab="in_transit">
-              In Transit / Studio <span class="tab-count">3</span>
+              In Transit / Studio <span class="tab-count" id="ret-count-transit">3</span>
             </button>
             <button class="filter-tab" data-tab="exchanges">
-              Exchanges <span class="tab-count">3</span>
+              Exchanges <span class="tab-count" id="ret-count-exchanges">3</span>
             </button>
             <button class="filter-tab" data-tab="refunded">
-              Refunded <span class="tab-count">1</span>
+              Refunded <span class="tab-count" id="ret-count-refunded">1</span>
             </button>
             <button class="filter-tab" data-tab="rejected">
-              Rejected <span class="tab-count">1</span>
+              Rejected <span class="tab-count" id="ret-count-rejected">1</span>
             </button>
           </div>
 
           <!-- Toolbar Row: Search & Filters -->
           <div class="toolbar-row">
             <div class="toolbar-left">
-              <div class="search-box">
-                <svg class="search-icon" viewBox="0 0 24 24" fill="none" stroke="currentColor"><circle cx="11" cy="11" r="8"/><path d="m21 21-4.3-4.3"/></svg>
-                <input type="text" class="search-input" id="table-search-input" placeholder="Search by Order ID, Customer, Phone, SKU..." />
+              <div class="global-search-container" style="min-width: 220px;">
+                <svg class="global-search-icon" viewBox="0 0 24 24" fill="none" stroke="currentColor"><circle cx="11" cy="11" r="8"/><path d="m21 21-4.3-4.3"/></svg>
+                <input type="text" class="global-search-input" id="returns-search-input" placeholder="Search by Order ID, Customer, SKU..." style="width: 100%;" />
               </div>
 
               <!-- Type Filter -->
-              <select class="select-filter" id="filter-type-select">
+              <select class="select-filter" id="returns-filter-type">
                 <option value="all">All Types</option>
                 <option value="size_exchange">Size Exchange</option>
                 <option value="product_exchange">Product Swap</option>
@@ -339,7 +1202,7 @@
               </select>
 
               <!-- Reason Filter -->
-              <select class="select-filter" id="filter-reason-select">
+              <select class="select-filter" id="returns-filter-reason">
                 <option value="all">All Return Reasons</option>
                 <option value="Incorrect Sizing / Fit">Incorrect Sizing / Fit</option>
                 <option value="Weave / Zari Flaw">Weave / Zari Flaw</option>
@@ -350,378 +1213,575 @@
               </select>
 
               <!-- Date Filter -->
-              <select class="select-filter" id="filter-date-select">
+              <select class="select-filter" id="returns-filter-date">
                 <option value="all">All Dates</option>
                 <option value="today">Today (30 Oct)</option>
                 <option value="last_7_days">Last 7 Days</option>
                 <option value="last_30_days">Last 30 Days</option>
               </select>
 
-              <!-- Reset -->
-              <button class="btn-ghost-filter" id="btn-clear-filters">
+              <!-- Clear Filters -->
+              <button class="btn-secondary-action" id="btn-returns-clear-filters" style="font-size: 0.75rem;">
                 <svg width="12" height="12" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><path d="M18 6 6 18"/><path d="m6 6 12 12"/></svg>
-                Clear
+                <span>Clear</span>
               </button>
             </div>
 
             <div class="toolbar-right">
-              <span class="text-overline" style="color: var(--text-muted);" id="table-count-footer">Loading requests...</span>
+              <span class="text-overline" style="color: var(--text-muted);" id="returns-table-count-label">Showing 8 requests</span>
             </div>
           </div>
 
-          <!-- Requests Table Container -->
-          <div id="table-container">
-            <div class="table-responsive">
-              <table class="data-table">
+          <!-- Requests Table -->
+          <div class="table-responsive">
+            <table class="data-table" id="returns-data-table">
+              <thead>
+                <tr>
+                  <th style="width: 110px;">Request ID</th>
+                  <th style="width: 100px;">Order ID</th>
+                  <th>Customer</th>
+                  <th>Garment & SKU</th>
+                  <th>Resolution Type</th>
+                  <th>Return Reason</th>
+                  <th>Value</th>
+                  <th>Status</th>
+                  <th style="text-align: right; width: 100px;">Action</th>
+                </tr>
+              </thead>
+              <tbody id="returns-table-body">
+                <!-- Populated via JS -->
+              </tbody>
+            </table>
+          </div>
+        </div>
+      </main>
+
+      <!-- ======================================================================
+           VIEW 5: CUSTOMER-FACING RETURN CONCIERGE PORTAL (BUILT)
+           ====================================================================== -->
+      <main class="view-container" id="view-customer-portal">
+        <div class="portal-container" style="max-width: 760px; margin: 0 auto; padding: 1.5rem 0;">
+          <!-- Header Bar -->
+          <div style="display: flex; justify-content: space-between; align-items: center; margin-bottom: 1.5rem; border-bottom: 1px solid var(--border-subtle); padding-bottom: 1rem;">
+            <div class="brand-placeholder">
+              <div class="logo-box">LOGO</div>
+              <div class="brand-info">
+                <span class="brand-title">Brand Name</span>
+                <span class="brand-sub">Patron Concierge & Returns</span>
+              </div>
+            </div>
+            <button class="btn-secondary-action" id="btn-back-to-admin-from-portal">
+              <svg width="14" height="14" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><path d="m12 19-7-7 7-7"/><path d="M19 12H5"/></svg>
+              <span>Back to Admin Panel</span>
+            </button>
+          </div>
+
+          <!-- Step 1: Order Lookup -->
+          <div class="portal-card" id="cust-form-step-container">
+            <span class="text-overline" style="color: var(--accent);">Boutique Quality Assurance</span>
+            <h2 class="portal-hero-title" style="font-family: var(--font-serif); font-size: 1.6rem; margin: 0.25rem 0;">Initiate a Return or Exchange</h2>
+            <p class="portal-hero-lead" style="font-size: 0.8125rem; color: var(--text-secondary); line-height: 1.45; margin-bottom: 1.25rem;">
+              We take pride in our handcrafted artisanal textiles. If a piece does not fit your silhouette or meet expectations, please enter your order details below.
+            </p>
+
+            <div style="display: grid; grid-template-columns: 1fr 1fr; gap: 0.75rem; margin-bottom: 0.75rem;">
+              <div>
+                <label class="text-overline" style="display: block; margin-bottom: 0.25rem;">Order Number *</label>
+                <input type="text" class="select-filter font-mono" id="cust-order-lookup" value="ORD-24817" style="width: 100%;" placeholder="e.g. ORD-24817" />
+              </div>
+              <div>
+                <label class="text-overline" style="display: block; margin-bottom: 0.25rem;">Registered Phone Number *</label>
+                <input type="text" class="select-filter font-mono" id="cust-phone-lookup" value="9820144821" style="width: 100%;" placeholder="10-digit mobile" />
+              </div>
+            </div>
+
+            <!-- Demo helper chips -->
+            <div style="display: flex; align-items: center; gap: 0.45rem; flex-wrap: wrap; margin-bottom: 1rem; font-size: 0.72rem;">
+              <span class="text-muted">Quick Demo Fill:</span>
+              <span class="filter-chip" style="cursor: pointer;" id="chip-demo-order-1">Try ORD-24817 (Ananya Deshmukh)</span>
+              <span class="filter-chip" style="cursor: pointer;" id="chip-demo-order-2">Try ORD-24805 (Shreya Sen)</span>
+            </div>
+
+            <!-- Step 2: Garment Card (Select from Order) -->
+            <div id="cust-order-details-section" style="border-top: 1px solid var(--border-subtle); padding-top: 1rem; margin-top: 0.5rem;">
+              <span class="text-overline" style="display: block; margin-bottom: 0.5rem;">Step 2: Selected Garment from Order</span>
+              <div id="cust-items-selection">
+                <div class="garment-card">
+                  <div style="width: 44px; height: 44px; background: var(--bg-subtle); border: 1px solid var(--border-hairline); border-radius: var(--radius-xs); display: flex; align-items: center; justify-content: center; font-size: 0.75rem; font-weight: 700;">
+                    KUR
+                  </div>
+                  <div style="flex: 1;">
+                    <strong style="font-family: var(--font-serif); font-size: 1.05rem;" id="cust-garment-name">Chanderi Silk Angrakha Kurta</strong>
+                    <div style="font-size: 0.72rem; color: var(--text-muted);" id="cust-garment-sub">Natural Ecru &bull; Size M &bull; SKU: CSK-ECR-M</div>
+                  </div>
+                  <div class="font-mono" style="font-size: 1.05rem; font-weight: 700;" id="cust-garment-price">$225</div>
+                </div>
+              </div>
+
+              <!-- Step 3: Resolution Choice Cards -->
+              <div style="margin-top: 1.25rem;">
+                <span class="text-overline" style="display: block; margin-bottom: 0.5rem;">Step 3: Preferred Resolution</span>
+                <div class="radio-cards-grid">
+                  <div class="radio-choice-card selected" data-choice-type="size_exchange">
+                    <strong style="font-size: 0.8125rem; display: block;">Size Exchange</strong>
+                    <span style="font-size: 0.72rem; color: var(--text-muted); line-height: 1.35;">Swap for a different size of the same handcrafted design.</span>
+                  </div>
+                  <div class="radio-choice-card" data-choice-type="store_credit">
+                    <strong style="font-size: 0.8125rem; display: block;">Store Credit (+10% Bonus)</strong>
+                    <span style="font-size: 0.72rem; color: var(--text-muted); line-height: 1.35;">Receive a boutique voucher with no expiry date plus 10% bonus value.</span>
+                  </div>
+                  <div class="radio-choice-card" data-choice-type="product_exchange">
+                    <strong style="font-size: 0.8125rem; display: block;">Swap for Different Garment</strong>
+                    <span style="font-size: 0.72rem; color: var(--text-muted); line-height: 1.35;">Exchange for another silhouette from our current collection.</span>
+                  </div>
+                  <div class="radio-choice-card" data-choice-type="refund">
+                    <strong style="font-size: 0.8125rem; display: block;">Refund to Original Payment</strong>
+                    <span style="font-size: 0.72rem; color: var(--text-muted); line-height: 1.35;">Refund back to your credit card, Apple Pay, or bank source.</span>
+                  </div>
+                </div>
+              </div>
+
+              <!-- Size Target Options -->
+              <div id="cust-size-exchange-options" style="margin-top: 1rem; background: var(--bg-subtle); padding: 0.85rem; border-radius: var(--radius-xs); border: 1px solid var(--border-hairline);">
+                <span class="text-overline" style="display: block; margin-bottom: 0.35rem;">Preferred Target Size:</span>
+                <div style="display: flex; gap: 0.5rem; flex-wrap: wrap;">
+                  <button type="button" class="btn-secondary cust-size-btn" data-size="XS">XS (2 in stock)</button>
+                  <button type="button" class="btn-secondary cust-size-btn" data-size="S">S (4 in stock)</button>
+                  <button type="button" class="btn-secondary cust-size-btn active" style="background: var(--accent); color: var(--text-inverse);" data-size="L">L (3 in stock)</button>
+                  <button type="button" class="btn-secondary cust-size-btn" data-size="XL">XL (5 in stock)</button>
+                </div>
+              </div>
+
+              <!-- Step 4: Reason & Notes -->
+              <div style="margin-top: 1.25rem;">
+                <span class="text-overline" style="display: block; margin-bottom: 0.35rem;">Step 4: Reason for Claim</span>
+                <select class="select-filter" id="cust-reason-category" style="width: 100%; margin-bottom: 0.5rem;">
+                  <option value="Incorrect Sizing / Fit">Fit too snug across bust/waist</option>
+                  <option value="Incorrect Sizing / Fit">Fit looser than anticipated</option>
+                  <option value="Weave / Zari Flaw">Artisanal weave or zari flaw</option>
+                  <option value="Color Variance">Color shade variation from studio photos</option>
+                  <option value="Fabric Texture Dissatisfaction">Fabric feel different than anticipated</option>
+                  <option value="Event Postponed / Changed Mind">Event postponed / personal reason</option>
+                </select>
+                <textarea class="select-filter" id="cust-verbatim-notes" rows="3" style="width: 100%;" placeholder="Describe fit notes or concerns for our master atelier tailor..."></textarea>
+              </div>
+
+              <!-- Step 5: Upload Photos -->
+              <div style="margin-top: 1.25rem;">
+                <span class="text-overline" style="display: block; margin-bottom: 0.35rem;">Step 5: Photos (Optional for Sizing, Required for Flaws)</span>
+                <div class="upload-dropzone" id="cust-upload-dropzone" style="border: 1px dashed var(--border-hairline); border-radius: var(--radius-sm); padding: 1.25rem; text-align: center; background: var(--bg-subtle); cursor: pointer;">
+                  <svg width="24" height="24" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.5" style="margin: 0 auto 0.25rem auto; display: block; color: var(--text-muted);"><path d="M14.5 4h-5L7 7H4a2 2 0 0 0-2 2v9a2 2 0 0 0 2 2h16a2 2 0 0 0 2-2V9a2 2 0 0 0-2-2h-3l-2.5-3z"/><circle cx="12" cy="13" r="3"/></svg>
+                  <div style="font-size: 0.78rem; font-weight: 600;">Click to simulate photo attachment (Designer Tag & Seam)</div>
+                  <span id="cust-photo-attached-label" style="font-size: 0.7rem; color: var(--stock-in); font-weight: 600; display: block; margin-top: 0.25rem;">2 Photos Attached: [Bust Seam Measurement.jpg, Security Seal Intact.jpg]</span>
+                </div>
+              </div>
+
+              <!-- Step 6: Pickup Address & Submit -->
+              <div style="margin-top: 1.25rem; padding: 0.85rem 1rem; background: var(--bg-subtle); border-radius: var(--radius-xs); border: 1px solid var(--border-hairline); font-size: 0.78rem;">
+                <strong>Doorstep Reverse Courier Pickup Address:</strong>
+                <div style="color: var(--text-secondary); margin-top: 0.2rem;" id="cust-pickup-address">Flat 402, Sea Green Apts, Perry Cross Rd, Bandra West, Mumbai 400050</div>
+                <div style="font-size: 0.7rem; color: var(--text-muted); margin-top: 0.25rem;">Courier: BlueDart Reverse Logistics Concierge (AWB tracking generated upon authorization).</div>
+              </div>
+
+              <div style="margin-top: 1.5rem; display: flex; justify-content: flex-end;">
+                <button class="btn-primary" id="btn-submit-customer-return" style="padding: 0.65rem 1.35rem;">
+                  Submit Return & Request Pickup &rarr;
+                </button>
+              </div>
+            </div>
+          </div>
+
+          <!-- Step Confirmation Block (Hidden until submit) -->
+          <div id="cust-confirmation-block" class="portal-card" style="display: none; text-align: center; padding: 3rem 1.5rem;">
+            <div style="color: var(--stock-in); margin-bottom: 0.75rem;">
+              <svg width="48" height="48" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><circle cx="12" cy="12" r="10"/><path d="m9 12 2 2 4-4"/></svg>
+            </div>
+            <span class="text-overline" style="color: var(--stock-in);">Request Received</span>
+            <h2 style="font-family: var(--font-serif); font-size: 1.6rem; margin: 0.35rem 0;">Return Claim Logged Successfully</h2>
+            <p style="font-size: 0.8125rem; color: var(--text-secondary); max-width: 480px; margin: 0.5rem auto 1.5rem auto; line-height: 1.45;">
+              Your request reference is <strong class="font-mono" id="cust-confirm-ref" style="color: var(--text-primary);">RET-26-090</strong>. Our studio concierge has received your request and will schedule your reverse courier pickup within 24 hours.
+            </p>
+            <button class="btn-primary" id="btn-back-to-admin-from-confirm">
+              &larr; Return to Admin Panel to see your new request in the queue
+            </button>
+          </div>
+        </div>
+      </main>
+
+    </div>
+
+    <!-- ======================================================================
+         QUICK-VIEW PRODUCT DETAIL DRAWER (C3)
+         ====================================================================== -->
+    <div class="drawer-backdrop" id="product-drawer-backdrop"></div>
+    <aside class="slide-over-drawer" id="product-quick-view-drawer">
+      <div class="drawer-header-bar">
+        <div style="display: flex; align-items: center; gap: 0.5rem;">
+          <span class="text-overline font-mono" id="qview-sku">SKU</span>
+          <span class="status-pill status-published" id="qview-status">Published</span>
+        </div>
+        <button class="icon-btn-secondary" id="btn-close-qview-drawer" title="Close Drawer">
+          <svg width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><path d="M18 6 6 18"/><path d="m6 6 12 12"/></svg>
+        </button>
+      </div>
+      <div class="drawer-body-scroll" id="qview-drawer-body">
+        <!-- Populated dynamically via JS -->
+      </div>
+    </aside>
+
+    <!-- ======================================================================
+         STOCK QUICK-EDIT MODAL (C4)
+         ====================================================================== -->
+    <div class="modal-backdrop" id="stock-quick-edit-modal">
+      <div class="modal-window-box">
+        <div class="modal-header-bar">
+          <div>
+            <h3 class="font-serif" style="font-size: 1.25rem;">Quick Adjust Stock</h3>
+            <span class="text-overline" id="quick-stock-product-name">Product Name</span>
+          </div>
+          <button class="icon-btn-secondary" id="btn-close-stock-modal">
+            <svg width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><path d="M18 6 6 18"/><path d="m6 6 12 12"/></svg>
+          </button>
+        </div>
+        <div class="modal-body-scroll">
+          <div style="display: flex; justify-content: space-between; align-items: center; background: var(--bg-subtle); padding: 0.75rem 1rem; border-radius: var(--radius-sm); border: 1px solid var(--border-hairline);">
+            <span class="text-overline">Current Total Stock:</span>
+            <span class="font-mono" style="font-size: 1.15rem; font-weight: 700;" id="quick-stock-total-display">0 pcs</span>
+          </div>
+
+          <div style="margin-top: 0.5rem;">
+            <label class="text-overline" style="display: block; margin-bottom: 0.35rem;">Stock Adjustment Reason *</label>
+            <select class="select-filter" id="quick-stock-reason-select" style="width: 100%;">
+              <option value="Received from Artisan Cluster">Received Shipment from Artisan Cluster (+)</option>
+              <option value="Physical Inventory Count Correction">Physical Inventory Count Correction (&plusmn;)</option>
+              <option value="Damaged / Fabric Defect Quarantined">Damaged / Flawed Piece Quarantined (-)</option>
+              <option value="Reserved for Trunk Show / Exhibition">Reserved for Trunk Show / Exhibition (-)</option>
+            </select>
+          </div>
+
+          <!-- Per-Size Stock Spinners -->
+          <div style="margin-top: 0.5rem;">
+            <label class="text-overline" style="display: block; margin-bottom: 0.35rem;">Adjust Quantity by Size</label>
+            <div id="quick-stock-spinners-container" style="display: flex; flex-direction: column; gap: 0.45rem;">
+              <!-- Spinners populated via JS -->
+            </div>
+          </div>
+        </div>
+        <div class="modal-footer-bar">
+          <button class="btn-secondary" id="btn-cancel-stock-modal">Cancel</button>
+          <button class="btn-primary" id="btn-save-quick-stock">Save & Reconcile Stock</button>
+        </div>
+      </div>
+    </div>
+
+    <!-- ======================================================================
+         CSV IMPORT WIZARD MODAL (C1)
+         ====================================================================== -->
+    <div class="modal-backdrop" id="csv-import-modal">
+      <div class="modal-window-box wide">
+        <div class="modal-header-bar">
+          <div>
+            <h3 class="font-serif" style="font-size: 1.25rem;">Import Catalogue from CSV</h3>
+            <span class="text-overline">Multi-row batch product ingestion</span>
+          </div>
+          <button class="icon-btn-secondary" id="btn-close-import-modal">
+            <svg width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><path d="M18 6 6 18"/><path d="m6 6 12 12"/></svg>
+          </button>
+        </div>
+        <div class="modal-body-scroll">
+          <!-- Wizard Steps Bar -->
+          <div style="display: flex; align-items: center; justify-content: space-between; border-bottom: 1px solid var(--border-subtle); padding-bottom: 0.75rem; margin-bottom: 0.75rem;">
+            <span class="text-overline" id="import-step-label">Step 1: Upload & Map Columns</span>
+            <button type="button" class="btn-secondary" style="font-size: 0.72rem; padding: 0.2rem 0.5rem;" id="btn-download-sample-csv">Download Sample CSV Template</button>
+          </div>
+
+          <!-- Step 1: Upload Dropzone Simulation -->
+          <div id="import-step-1">
+            <div style="border: 1px dashed var(--border-hairline); border-radius: var(--radius-sm); padding: 2rem; text-align: center; background-color: var(--bg-subtle); cursor: pointer;" id="import-file-dropzone">
+              <svg width="32" height="32" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.5" style="margin: 0 auto 0.5rem auto; display: block; color: var(--text-muted);"><path d="M21 15v4a2 2 0 0 1-2 2H5a2 2 0 0 1-2-2v-4"/><polyline points="17 8 12 3 7 8"/><line x1="12" x2="12" y1="3" y2="15"/></svg>
+              <strong>Click to upload product catalogue CSV</strong>
+              <div style="font-size: 0.72rem; color: var(--text-muted); margin-top: 0.25rem;">Or drag and drop your spreadsheet here</div>
+            </div>
+          </div>
+
+          <!-- Step 2: Validation Preview Table with Deliberate Row Errors -->
+          <div id="import-step-2" style="display: none;">
+            <div style="background: var(--bg-subtle); padding: 0.65rem 0.85rem; border-radius: var(--radius-xs); border: 1px solid var(--border-hairline); margin-bottom: 0.75rem; font-size: 0.75rem;">
+              <strong>Validation Result:</strong> <span style="color: var(--stock-in); font-weight: 600;">3 Valid Rows</span> &bull; <span style="color: var(--stock-out); font-weight: 600;">2 Invalid Rows with Validation Errors</span>
+            </div>
+            <div style="border: 1px solid var(--border-hairline); border-radius: var(--radius-xs); overflow-x: auto; max-height: 220px;">
+              <table class="variant-matrix-table" id="import-validation-table">
                 <thead>
                   <tr>
-                    <th style="width: 130px;">Request ID</th>
-                    <th style="width: 110px;">Order ID</th>
-                    <th>Customer</th>
-                    <th>Product & SKU</th>
-                    <th>Type</th>
-                    <th>Return Reason</th>
-                    <th>Value</th>
-                    <th>Status</th>
-                    <th style="text-align: right;">Action</th>
+                    <th>Row</th>
+                    <th>Product Name</th>
+                    <th>SKU</th>
+                    <th>Category</th>
+                    <th>Price</th>
+                    <th>Stock</th>
+                    <th>Validation Status</th>
                   </tr>
                 </thead>
-                <tbody id="requests-table-body">
-                  <!-- Populated via JavaScript -->
+                <tbody id="import-validation-table-body">
+                  <!-- Populated via JS -->
                 </tbody>
               </table>
             </div>
           </div>
         </div>
-
-      </main>
-
+        <div class="modal-footer-bar">
+          <button class="btn-secondary" id="btn-cancel-import">Cancel</button>
+          <button class="btn-primary" id="btn-proceed-import" disabled>Validate & Ingest Valid Rows</button>
+        </div>
+      </div>
     </div>
 
-    <!-- ==========================================================================
-         SLIDE-OVER REQUEST DETAIL DRAWER
-         ========================================================================== -->
-    <div class="drawer-backdrop" id="drawer-backdrop"></div>
-    <aside class="request-drawer" id="request-drawer">
-      <div id="drawer-content" style="display: flex; flex-direction: column; height: 100%;">
-        <!-- Dynamically injected via app.js -->
+    <!-- ======================================================================
+         BARCODE PRINT MODAL (C5)
+         ====================================================================== -->
+    <div class="modal-backdrop" id="barcode-print-modal">
+      <div class="modal-window-box">
+        <div class="modal-header-bar">
+          <div>
+            <h3 class="font-serif" style="font-size: 1.25rem;">Garment Hangtag Label Print Preview</h3>
+            <span class="text-overline">Thermal label printer standard</span>
+          </div>
+          <button class="icon-btn-secondary" id="btn-close-barcode-modal">
+            <svg width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><path d="M18 6 6 18"/><path d="m6 6 12 12"/></svg>
+          </button>
+        </div>
+        <div class="modal-body-scroll">
+          <!-- Realistic Garment Tag Preview -->
+          <div class="hangtag-preview-card" id="hangtag-print-area">
+            <div class="hangtag-hole"></div>
+            <div class="logo-box" style="margin-bottom: 0.25rem;">LOGO</div>
+            <strong style="font-family: var(--font-serif); font-size: 1.1rem; line-height: 1.15;" id="hangtag-name">Linen Wrap Midi Dress</strong>
+            <span class="text-overline font-mono" id="hangtag-sku">LWD-IND-M</span>
+            <div style="display: flex; gap: 0.75rem; font-size: 0.75rem; font-weight: 600; margin: 0.2rem 0;">
+              <span>Size: <strong id="hangtag-size">M</strong></span>
+              <span>Color: <strong id="hangtag-color">Indigo</strong></span>
+            </div>
+            <div class="hangtag-barcode-lines"></div>
+            <span class="font-mono" style="font-size: 0.72rem; letter-spacing: 0.1em;" id="hangtag-barcode-num">890412345001</span>
+            <div style="font-family: var(--font-mono); font-size: 1.25rem; font-weight: 700; margin-top: 0.25rem;" id="hangtag-price">$195.00</div>
+          </div>
+        </div>
+        <div class="modal-footer-bar">
+          <button class="btn-secondary" id="btn-cancel-barcode">Close</button>
+          <button class="btn-primary" id="btn-trigger-print">
+            <svg width="14" height="14" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><polyline points="6 9 6 2 18 2 18 9"/><path d="M6 18H4a2 2 0 0 1-2-2v-5a2 2 0 0 1 2-2h16a2 2 0 0 1 2 2v5a2 2 0 0 1-2 2h-2"/><rect width="12" height="8" x="6" y="14"/></svg>
+            <span>Print Label</span>
+          </button>
+        </div>
+      </div>
+    </div>
+
+    <!-- ======================================================================
+         DASHBOARD CUSTOMIZER DRAWER (B10)
+         ====================================================================== -->
+    <div class="drawer-backdrop" id="customizer-drawer-backdrop"></div>
+    <aside class="slide-over-drawer" id="dashboard-customizer-drawer" style="width: 380px;">
+      <div class="drawer-header-bar">
+        <div>
+          <h3 class="font-serif" style="font-size: 1.2rem;">Customize Overview</h3>
+          <span class="text-overline">Show / Hide Dashboard Widgets</span>
+        </div>
+        <button class="icon-btn-secondary" id="btn-close-customizer-drawer">
+          <svg width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><path d="M18 6 6 18"/><path d="m6 6 12 12"/></svg>
+        </button>
+      </div>
+      <div class="drawer-body-scroll">
+        <p style="font-size: 0.78rem; color: var(--text-secondary); line-height: 1.4;">
+          Personalize which analytical modules appear on the main executive screen. Changes persist during this presentation session.
+        </p>
+        <div style="display: flex; flex-direction: column; gap: 0.75rem; margin-top: 0.5rem;">
+          <label style="display: flex; align-items: center; gap: 0.65rem; font-size: 0.8125rem; cursor: pointer;">
+            <input type="checkbox" id="toggle-widget-kpi" checked />
+            <span>KPI Metric Strip (6 Key Figures)</span>
+          </label>
+          <label style="display: flex; align-items: center; gap: 0.65rem; font-size: 0.8125rem; cursor: pointer;">
+            <input type="checkbox" id="toggle-widget-chart" checked />
+            <span>Sales Over Time Line Chart</span>
+          </label>
+          <label style="display: flex; align-items: center; gap: 0.65rem; font-size: 0.8125rem; cursor: pointer;">
+            <input type="checkbox" id="toggle-widget-orders" checked />
+            <span>Orders Needing Action Queue</span>
+          </label>
+          <label style="display: flex; align-items: center; gap: 0.65rem; font-size: 0.8125rem; cursor: pointer;">
+            <input type="checkbox" id="toggle-widget-topprod" checked />
+            <span>Top Selling Products Ranking</span>
+          </label>
+          <label style="display: flex; align-items: center; gap: 0.65rem; font-size: 0.8125rem; cursor: pointer;">
+            <input type="checkbox" id="toggle-widget-stock" checked />
+            <span>Low Stock & Depletion Warnings</span>
+          </label>
+          <label style="display: flex; align-items: center; gap: 0.65rem; font-size: 0.8125rem; cursor: pointer;">
+            <input type="checkbox" id="toggle-widget-category" checked />
+            <span>Category & Channel Share Distribution</span>
+          </label>
+          <label style="display: flex; align-items: center; gap: 0.65rem; font-size: 0.8125rem; cursor: pointer;">
+            <input type="checkbox" id="toggle-widget-activity" checked />
+            <span>Atelier Operational Activity Ledger</span>
+          </label>
+          <label style="display: flex; align-items: center; gap: 0.65rem; font-size: 0.8125rem; cursor: pointer;">
+            <input type="checkbox" id="toggle-widget-actions" checked />
+            <span>Quick Operational Actions Bar</span>
+          </label>
+        </div>
+      </div>
+      <div class="modal-footer-bar" style="background: var(--bg-subtle);">
+        <button class="btn-primary" id="btn-save-customizer-drawer" style="width: 100%;">Save Layout Preferences</button>
       </div>
     </aside>
 
-  </div>
-
-  <!-- ==========================================================================
-       CUSTOMER-FACING RETURN REQUEST VIEW (PORTAL SCREEN)
-       ========================================================================== -->
-  <div class="customer-portal-view" id="customer-portal-view">
-    <!-- Portal Topbar -->
-    <header class="portal-topbar">
-      <div class="brand-placeholder">
-        <div class="logo-box">LOGO</div>
-        <div class="brand-info">
-          <span class="brand-title">Brand Name</span>
-          <span class="brand-sub">Client Concierge & Returns</span>
+    <!-- ======================================================================
+         RETURNS MODULE 16: SLIDE-OVER REQUEST DETAIL DRAWER
+         ====================================================================== -->
+    <div class="drawer-backdrop" id="return-drawer-backdrop"></div>
+    <aside class="slide-over-drawer wide" id="return-request-drawer" style="width: 540px;">
+      <div class="drawer-header-bar">
+        <div style="display: flex; align-items: center; gap: 0.65rem;">
+          <strong class="font-mono" style="font-size: 1rem;" id="drawer-req-id">RET-26-089</strong>
+          <span class="status-pill status-requested" id="drawer-status-pill">Requested</span>
+          <span class="font-mono text-muted" style="font-size: 0.72rem;" id="drawer-order-id">ORD-24817</span>
         </div>
-      </div>
-      <div style="display: flex; align-items: center; gap: 0.75rem;">
-        <div class="segmented-control" id="portal-theme-segmented-control" title="Toggle Theme">
-          <button class="segment-btn active" id="btn-portal-theme-dark" title="Dark Obsidian Studio">
-            <svg width="12" height="12" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><path d="M12 3a6 6 0 0 0 9 9 9 9 0 1 1-9-9Z"/></svg>
-            <span>Dark</span>
-          </button>
-          <button class="segment-btn" id="btn-portal-theme-light" title="Light Warm Bone">
-            <svg width="12" height="12" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><circle cx="12" cy="12" r="4"/><path d="M12 2v2"/><path d="M12 20v2"/></svg>
-            <span>Light</span>
-          </button>
-        </div>
-        <button class="btn-secondary-action" id="btn-switch-to-admin">
-          <svg width="14" height="14" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><path d="m12 19-7-7 7-7"/><path d="M19 12H5"/></svg>
-          <span>Back to Admin Panel</span>
+        <button class="icon-btn-secondary" id="btn-close-return-drawer" title="Close Drawer">
+          <svg width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><path d="M18 6 6 18"/><path d="m6 6 12 12"/></svg>
         </button>
       </div>
-    </header>
+      <div class="drawer-body-scroll" id="return-drawer-body">
+        <!-- Injected dynamically via JS -->
+      </div>
+    </aside>
 
-    <div class="portal-container">
+    <!-- ======================================================================
+         RETURNS MODAL 1: REJECTION CONFIRMATION WITH POLICY TEMPLATES
+         ====================================================================== -->
+    <div class="modal-backdrop" id="rejection-modal">
+      <div class="modal-window-box">
+        <div class="modal-header-bar">
+          <h3 class="font-serif" style="font-size: 1.25rem;">Reject Return Request</h3>
+          <button class="icon-btn-secondary" id="btn-close-rejection-modal">
+            <svg width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><path d="M18 6 6 18"/><path d="m6 6 12 12"/></svg>
+          </button>
+        </div>
+        <div class="modal-body-scroll">
+          <div style="margin-bottom: 0.75rem;">
+            <label class="text-overline" style="display: block; margin-bottom: 0.25rem;">Policy Rejection Preset Template</label>
+            <select class="select-filter" id="rejection-template-select" style="width: 100%;">
+              <!-- Injected dynamically via JS -->
+            </select>
+          </div>
+          <div>
+            <label class="text-overline" style="display: block; margin-bottom: 0.25rem;">Patron Formal Notification Note</label>
+            <textarea class="select-filter" id="rejection-custom-note" rows="5" style="width: 100%; font-size: 0.78rem;"></textarea>
+            <span class="text-muted" style="font-size: 0.6875rem; display: block; margin-top: 0.25rem;">
+              This formal reason will be transmitted via email explaining the boutique policy declination.
+            </span>
+          </div>
+        </div>
+        <div class="modal-footer-bar">
+          <button class="btn-secondary" id="btn-cancel-rejection">Cancel</button>
+          <button class="btn-danger-outline" id="btn-confirm-rejection">Confirm Rejection</button>
+        </div>
+      </div>
+    </div>
 
-      <!-- Form Container -->
-      <div id="cust-form-step-container" style="display: flex; flex-direction: column; gap: 1.5rem;">
-        <div class="portal-card">
-          <span class="text-overline" style="color: var(--accent);">Boutique Quality Assurance</span>
-          <h1 class="portal-hero-title">Initiate a Return or Exchange</h1>
-          <p class="portal-hero-lead">
-            We take pride in our handcrafted artisanal textiles. If a piece does not fit your silhouette or meet expectations, please enter your details below.
+    <!-- ======================================================================
+         RETURNS MODAL 2: STUDIO STOCK & INVENTORY AUDIT LEDGER
+         ====================================================================== -->
+    <div class="modal-backdrop" id="ledger-modal">
+      <div class="modal-window-box wide" style="max-width: 860px;">
+        <div class="modal-header-bar">
+          <div>
+            <h3 class="font-serif" style="font-size: 1.25rem;">Studio Stock & Inventory Audit Ledger</h3>
+            <span class="text-overline">Reconciliation of garments restocked, exchanged, or routed to refurbishment</span>
+          </div>
+          <button class="icon-btn-secondary" id="btn-close-ledger-modal">
+            <svg width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><path d="M18 6 6 18"/><path d="m6 6 12 12"/></svg>
+          </button>
+        </div>
+        <div class="modal-body-scroll" style="padding: 0;">
+          <div class="table-responsive">
+            <table class="data-table" style="font-size: 0.75rem;">
+              <thead>
+                <tr>
+                  <th>Timestamp</th>
+                  <th>Garment / SKU</th>
+                  <th>Movement Type</th>
+                  <th>Delta</th>
+                  <th>Location</th>
+                  <th>Claim Ref / Note</th>
+                  <th>Logged By</th>
+                </tr>
+              </thead>
+              <tbody id="ledger-table-body">
+                <!-- Injected dynamically via JS -->
+              </tbody>
+            </table>
+          </div>
+        </div>
+        <div class="modal-footer-bar">
+          <span class="text-overline" style="margin-right: auto; color: var(--stock-in);">&bull; Central Atelier ERP Synchronized</span>
+          <button class="btn-secondary" id="btn-dismiss-ledger-modal">Close Ledger</button>
+        </div>
+      </div>
+    </div>
+
+    <!-- ======================================================================
+         RETURNS MODAL 3: MACRO ZOOM GARMENT PHOTO INSPECTION
+         ====================================================================== -->
+    <div class="modal-backdrop" id="photo-zoom-modal">
+      <div class="modal-window-box" style="width: 540px;">
+        <div class="modal-header-bar">
+          <h3 class="font-serif" style="font-size: 1.2rem;" id="photo-zoom-title">Garment Inspection Media</h3>
+          <button class="icon-btn-secondary" id="btn-close-zoom-modal">
+            <svg width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><path d="M18 6 6 18"/><path d="m6 6 12 12"/></svg>
+          </button>
+        </div>
+        <div class="modal-body-scroll">
+          <div id="photo-zoom-visual" style="height: 220px; background: var(--bg-subtle); border: 1px solid var(--border-hairline); border-radius: var(--radius-xs); display: flex; align-items: center; justify-content: center; margin-bottom: 0.75rem;">
+            <!-- Zoom graphic injected via JS -->
+          </div>
+          <div id="photo-zoom-caption" style="font-size: 0.78rem; color: var(--text-secondary); background: var(--bg-subtle); padding: 0.75rem 1rem; border-left: 3px solid var(--accent); border-radius: 0 var(--radius-xs) var(--radius-xs) 0;">
+            <!-- Caption injected via JS -->
+          </div>
+        </div>
+      </div>
+    </div>
+
+    <!-- INACTIVE MODULE PLACEHOLDER MODAL -->
+    <div class="modal-backdrop" id="inactive-module-modal">
+      <div class="modal-window-box">
+        <div class="modal-header-bar">
+          <h3 class="font-serif" style="font-size: 1.2rem;">Prototype Scope Boundary</h3>
+          <button class="icon-btn-secondary" id="btn-close-inactive-modal">
+            <svg width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><path d="M18 6 6 18"/><path d="m6 6 12 12"/></svg>
+          </button>
+        </div>
+        <div class="modal-body-scroll">
+          <p style="font-size: 0.8125rem; line-height: 1.5;">
+            You clicked on <strong id="inactive-module-title">Module</strong>. For today's client demonstration scope, <strong>Module 1: Overview</strong>, <strong>Module 2: Products</strong>, and <strong>Module 16: Returns & Refunds</strong> are fully interactive and connected.
           </p>
-
-          <!-- Step 1: Order Lookup -->
-          <div style="display: flex; flex-direction: column; gap: 0.75rem; margin-top: 0.5rem;">
-            <div style="display: flex; gap: 0.75rem; flex-wrap: wrap;">
-              <div class="form-group" style="flex: 1; min-width: 200px;">
-                <label class="form-label">Order Number</label>
-                <input type="text" class="form-input font-mono" id="cust-order-lookup" value="ORD-24817" placeholder="e.g. ORD-24817" />
-              </div>
-              <div class="form-group" style="flex: 1; min-width: 200px;">
-                <label class="form-label">Registered Phone Number</label>
-                <input type="text" class="form-input font-mono" id="cust-phone-lookup" value="9820144821" placeholder="10-digit mobile" />
-              </div>
-            </div>
-
-            <!-- Demo helper chips -->
-            <div class="lookup-chips-row">
-              <span style="color: var(--text-muted);">Quick Demo Fill:</span>
-              <span class="lookup-chip" data-order-id="ORD-24817">Try ORD-24817 (Ananya Deshmukh)</span>
-              <span class="lookup-chip" data-order-id="ORD-24805">Try ORD-24805 (Shreya Sen)</span>
-            </div>
-
-            <button class="btn-primary" id="cust-btn-lookup" style="align-self: flex-start; margin-top: 0.25rem;">
-              Lookup Order Details
-            </button>
-          </div>
+          <p style="font-size: 0.75rem; color: var(--text-secondary); line-height: 1.4;">
+            All 16 enterprise modules remain visibly present in the architectural sidebar to demonstrate complete boutique ERP alignment.
+          </p>
         </div>
-
-        <!-- Step 2 & 3: Order Details & Return Options (Loaded after lookup) -->
-        <div id="cust-order-details-section" class="portal-card" style="display: block;">
-          <span class="text-overline">Step 2: Select Garments from Order</span>
-          <div id="cust-items-selection" style="display: flex; flex-direction: column; gap: 0.75rem; margin-top: 0.5rem;">
-            <div class="garment-card">
-              <div class="garment-visual">
-                <svg width="24" height="24" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.5"><path d="M20.38 3.46 16 2a4 4 0 0 1-8 0L3.62 3.46a2 2 0 0 0-1.34 2.23l.58 3.47a1 1 0 0 0 .99.84H6v10c0 1.1.9 2 2 2h8a2 2 0 0 0 2-2V10h2.15a1 1 0 0 0 .99-.84l.58-3.47a2 2 0 0 0-1.34-2.23z"/></svg>
-                <span style="font-size: 0.65rem;">Size M</span>
-              </div>
-              <div class="garment-info">
-                <div>
-                  <strong style="font-family: var(--font-serif); font-size: 1.1rem;">Chanderi Silk Angrakha Kurta</strong>
-                  <div style="font-size: 0.75rem; color: var(--text-muted);">Natural Ecru • SKU: CSK-ECR-M</div>
-                </div>
-                <div style="display: flex; justify-content: space-between; align-items: baseline; margin-top: 0.5rem;">
-                  <span class="font-mono" style="font-weight: 600;">₹6,450</span>
-                  <span style="font-size: 0.75rem; color: var(--accent); font-weight: 600;">Selected for Return</span>
-                </div>
-              </div>
-            </div>
-          </div>
-
-          <!-- Step 3: Resolution Preference -->
-          <div style="margin-top: 1.25rem;">
-            <span class="text-overline">Step 3: Preferred Resolution</span>
-            <div class="radio-cards-grid" style="margin-top: 0.5rem;">
-              <div class="radio-choice-card selected" data-choice-type="size_exchange">
-                <span class="radio-title">Size Exchange</span>
-                <span class="radio-desc">Swap for a different size of the same handcrafted design.</span>
-              </div>
-              <div class="radio-choice-card" data-choice-type="store_credit">
-                <span class="radio-title">Store Credit (+10% Bonus)</span>
-                <span class="radio-desc">Receive a boutique voucher with no expiry date plus 10% bonus value.</span>
-              </div>
-              <div class="radio-choice-card" data-choice-type="product_exchange">
-                <span class="radio-title">Swap for Different Garment</span>
-                <span class="radio-desc">Exchange for another piece from our current collection.</span>
-              </div>
-              <div class="radio-choice-card" data-choice-type="refund">
-                <span class="radio-title">Refund to Original Payment</span>
-                <span class="radio-desc">Refund back to original credit card, UPI or bank source.</span>
-              </div>
-            </div>
-          </div>
-
-          <!-- Size exchange target picker for customer -->
-          <div id="cust-size-exchange-options" style="margin-top: 1rem; background: var(--bg-subtle); padding: 1rem; border-radius: var(--radius-sm); border: 1px solid var(--border-hairline);">
-            <label class="form-label">Preferred Exchange Size</label>
-            <div style="display: flex; gap: 0.5rem; margin-top: 0.4rem;">
-              <button type="button" class="btn-secondary" style="padding: 0.35rem 0.75rem;">XS (2 left)</button>
-              <button type="button" class="btn-secondary" style="padding: 0.35rem 0.75rem;">S (4 left)</button>
-              <button type="button" class="btn-secondary active" style="background: var(--accent); color: var(--text-inverse); padding: 0.35rem 0.75rem;">L (3 left in stock)</button>
-              <button type="button" class="btn-secondary" style="padding: 0.35rem 0.75rem;">XL (5 left)</button>
-            </div>
-          </div>
-
-          <!-- Step 4: Reason -->
-          <div style="margin-top: 1.25rem;">
-            <span class="text-overline">Step 4: Reason for Claim</span>
-            <div style="display: flex; flex-direction: column; gap: 0.75rem; margin-top: 0.5rem;">
-              <select class="form-select" id="cust-reason-category">
-                <option value="Incorrect Sizing / Fit">Fit too snug across bust/waist</option>
-                <option value="Incorrect Sizing / Fit">Fit looser than expected</option>
-                <option value="Weave / Zari Flaw">Artisanal weave or zari flaw</option>
-                <option value="Color Variance">Color shade variation from studio photos</option>
-                <option value="Fabric Texture Dissatisfaction">Fabric feel different than anticipated</option>
-                <option value="Event Postponed / Changed Mind">Event postponed / personal reason</option>
-              </select>
-
-              <textarea class="form-input" id="cust-verbatim-notes" rows="3" placeholder="Please describe how the garment felt, specific fit notes, or any concerns for our master tailor..."></textarea>
-            </div>
-          </div>
-
-          <!-- Step 5: Upload Photos -->
-          <div style="margin-top: 1.25rem;">
-            <span class="text-overline">Step 5: Photos (Optional for Sizing, Required for Flaws)</span>
-            <div class="upload-dropzone" style="margin-top: 0.5rem;">
-              <svg width="28" height="28" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.5"><path d="M14.5 4h-5L7 7H4a2 2 0 0 0-2 2v9a2 2 0 0 0 2 2h16a2 2 0 0 0 2-2V9a2 2 0 0 0-2-2h-3l-2.5-3z"/><circle cx="12" cy="13" r="3"/></svg>
-              <div style="font-size: 0.8125rem; font-weight: 600;">Drag garment photos here or click to select</div>
-              <div style="font-size: 0.72rem; color: var(--text-muted);">Please include photos of the attached designer tags and safety ribbon.</div>
-            </div>
-          </div>
-
-          <!-- Step 6: Confirmation of Pickup -->
-          <div style="margin-top: 1.25rem; padding: 0.85rem 1rem; background: var(--bg-subtle); border-radius: var(--radius-sm); border: 1px solid var(--border-hairline); font-size: 0.8125rem;">
-            <strong>Doorstep Pickup Address:</strong>
-            <div style="color: var(--text-secondary); margin-top: 0.25rem;">Flat 402, Sea Green Apts, Perry Cross Rd, Bandra West, Mumbai 400050</div>
-            <div style="font-size: 0.72rem; color: var(--text-muted); margin-top: 0.35rem;">Courier: BlueDart Reverse Logistic Concierge (Airway bill generated upon authorization).</div>
-          </div>
-
-          <div style="margin-top: 1.5rem; display: flex; justify-content: flex-end;">
-            <button class="btn-primary" id="btn-submit-customer-return" style="padding: 0.75rem 1.5rem;">
-              Submit Return & Request Pickup
-            </button>
-          </div>
-        </div>
-      </div>
-
-      <!-- Confirmation Screen (Hidden until submit) -->
-      <div id="cust-confirmation-block" class="portal-card" style="display: none; text-align: center; padding: 3rem 2rem;">
-        <div style="color: var(--stock-in); margin-bottom: 0.75rem;">
-          <svg width="48" height="48" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><circle cx="12" cy="12" r="10"/><path d="m9 12 2 2 4-4"/></svg>
-        </div>
-        <span class="text-overline" style="color: var(--stock-in);">Request Received</span>
-        <h2 class="portal-hero-title" style="margin-top: 0.35rem;">Return Claim Logged Successfully</h2>
-        <p class="portal-hero-lead" style="max-width: 480px; margin: 0.5rem auto;">
-          Your request reference is <strong class="font-mono" id="cust-confirm-ref">RET-26-090</strong>. Our studio concierge has received your request and will schedule your reverse courier pickup within 24 hours.
-        </p>
-
-        <div style="margin-top: 2rem;">
-          <button class="btn-primary" id="btn-back-to-admin-from-confirm">
-            ← Return to Admin Panel to see your new request in the queue
-          </button>
-        </div>
-      </div>
-
-    </div>
-  </div>
-
-  <!-- ==========================================================================
-       MODALS
-       ========================================================================== -->
-
-  <!-- 1. Rejection Modal -->
-  <div class="modal-backdrop" id="rejection-modal">
-    <div class="modal-window">
-      <div class="modal-header">
-        <h3 class="modal-title">Reject Return Request</h3>
-        <button class="drawer-close-btn" id="rejection-modal-close">
-          <svg width="18" height="18" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><path d="M18 6 6 18"/><path d="m6 6 12 12"/></svg>
-        </button>
-      </div>
-      <div class="modal-body">
-        <div class="form-group">
-          <label class="form-label">Policy Reason Template</label>
-          <select class="form-select" id="rejection-template-select">
-            <!-- Injected via app.js -->
-          </select>
-        </div>
-        <div class="form-group">
-          <label class="form-label">Client Formal Rejection Note</label>
-          <textarea class="form-input" id="rejection-custom-note" rows="5"></textarea>
-          <span style="font-size: 0.7rem; color: var(--text-muted);">
-            This note will be transmitted via email to the customer explaining why the item was declined under boutique terms.
-          </span>
-        </div>
-      </div>
-      <div class="modal-footer">
-        <button class="btn-secondary" id="rejection-cancel-btn">Cancel</button>
-        <button class="btn-danger-outline" id="rejection-confirm-btn">Confirm Rejection</button>
-      </div>
-    </div>
-  </div>
-
-  <!-- 2. Inventory Audit Ledger Modal -->
-  <div class="modal-backdrop" id="ledger-modal">
-    <div class="modal-window wide">
-      <div class="modal-header">
-        <div>
-          <h3 class="modal-title">Studio Stock & Inventory Audit Ledger</h3>
-          <div style="font-size: 0.75rem; color: var(--text-secondary);">Real-time reconciliation of garments restocked, exchanged, or routed to refurbishment</div>
-        </div>
-        <button class="drawer-close-btn" id="ledger-modal-close">
-          <svg width="18" height="18" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><path d="M18 6 6 18"/><path d="m6 6 12 12"/></svg>
-        </button>
-      </div>
-      <div class="modal-body" style="padding: 0;">
-        <div class="table-responsive">
-          <table class="data-table">
-            <thead>
-              <tr>
-                <th>Timestamp</th>
-                <th>Product / SKU</th>
-                <th>Movement</th>
-                <th>Delta</th>
-                <th>Rack Stock</th>
-                <th>Location</th>
-                <th>Reason / Claim Ref</th>
-                <th>Logged By</th>
-              </tr>
-            </thead>
-            <tbody id="ledger-table-body">
-              <!-- Dynamically populated from state.inventoryLedger -->
-            </tbody>
-          </table>
-        </div>
-      </div>
-      <div class="modal-footer">
-        <span class="text-overline" style="margin-right: auto; color: var(--stock-in);">● Live Sync Active with Central Studio ERP</span>
-        <button class="btn-secondary" onclick="document.getElementById('ledger-modal').classList.remove('active')">Close Ledger</button>
-      </div>
-    </div>
-  </div>
-
-  <!-- 3. Photo Zoom Modal -->
-  <div class="modal-backdrop" id="photo-zoom-modal">
-    <div class="modal-window" style="width: 580px;">
-      <div class="modal-header">
-        <h3 class="modal-title" id="photo-zoom-title">Garment Inspection Media</h3>
-        <button class="drawer-close-btn" id="photo-zoom-modal-close">
-          <svg width="18" height="18" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><path d="M18 6 6 18"/><path d="m6 6 12 12"/></svg>
-        </button>
-      </div>
-      <div class="modal-body">
-        <div id="photo-zoom-visual" style="height: 240px; background: var(--bg-subtle); border: 1px solid var(--border-hairline); border-radius: var(--radius-sm); overflow: hidden;">
-        </div>
-        <div id="photo-zoom-caption" style="font-size: 0.8125rem; color: var(--text-secondary); background: var(--bg-subtle); padding: 0.75rem 1rem; border-left: 3px solid var(--accent);">
+        <div class="modal-footer-bar">
+          <button class="btn-primary" id="btn-confirm-inactive-modal">Understood, Continue Demo</button>
         </div>
       </div>
     </div>
-  </div>
 
-  <!-- 4. Inactive Module Notice Modal -->
-  <div class="modal-backdrop" id="inactive-module-modal">
-    <div class="modal-window">
-      <div class="modal-header">
-        <h3 class="modal-title">Module Preview Scope</h3>
-        <button class="drawer-close-btn" id="inactive-module-close">
-          <svg width="18" height="18" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><path d="M18 6 6 18"/><path d="m6 6 12 12"/></svg>
-        </button>
-      </div>
-      <div class="modal-body">
-        <p style="font-size: 0.8125rem; color: var(--text-primary); line-height: 1.5;">
-          You clicked on <strong id="inactive-module-name">Module</strong>. For today's client demonstration scope, only <strong>Module 16: Returns, Exchanges & Refunds</strong> is fully interactive.
-        </p>
-        <p style="font-size: 0.75rem; color: var(--text-secondary); line-height: 1.4;">
-          All 16 enterprise modules are visibly mapped in the sidebar to illustrate complete boutique architectural alignment.
-        </p>
-      </div>
-      <div class="modal-footer">
-        <button class="btn-primary" onclick="document.getElementById('inactive-module-modal').classList.remove('active')">
-          Understood, Continue Demo
-        </button>
-      </div>
+    <!-- GLOBAL TOAST NOTIFICATION -->
+    <div class="toast-notification" id="global-toast">
+      <svg width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="#2C6344" stroke-width="2.5"><polyline points="20 6 9 17 4 12"/></svg>
+      <span id="toast-message">Notification message</span>
     </div>
+
   </div>
 
-  <!-- Global Toast Notification -->
-  <div class="toast-notification" id="global-toast">
-    <svg width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="#2C6344" stroke-width="2.5"><polyline points="20 6 9 17 4 12"/></svg>
-    <span id="toast-message">Notification message</span>
-  </div>
-
-  <!-- Scripts -->
+  <!-- Application Scripts -->
   <script src="js/data.js"></script>
   <script src="js/app.js"></script>
 </body>
