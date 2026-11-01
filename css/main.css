@@ -620,26 +620,106 @@ input, select, textarea {
   border: 1px solid var(--border-hairline);
   border-radius: var(--radius-sm);
   padding: 2px;
+  gap: 2px;
 }
 
 .segment-btn {
   padding: 0.3rem 0.65rem;
   font-size: 0.75rem;
   font-weight: 500;
-  color: var(--text-secondary);
+  color: var(--text-muted);
   border-radius: var(--radius-xs);
+  border: 1px solid transparent;
   transition: all var(--transition-fast);
   display: flex;
   align-items: center;
   gap: 0.35rem;
   white-space: nowrap;
+  cursor: pointer;
+}
+
+.segment-btn:hover:not(.active) {
+  color: var(--text-primary);
+  background-color: var(--bg-hover);
 }
 
 .segment-btn.active {
-  background-color: var(--bg-surface);
-  color: var(--text-primary);
+  background-color: var(--accent-subtle);
+  color: var(--accent-text);
   font-weight: 600;
-  box-shadow: var(--shadow-subtle);
+  border-color: var(--accent-border);
+  box-shadow: 0 1px 3px rgba(0, 0, 0, 0.12);
+}
+
+.segment-btn.active svg {
+  color: var(--accent);
+  stroke: var(--accent);
+}
+
+/* Explicit Dark Theme Enhancements to match Sidebar Green */
+body.theme-dark .segmented-control,
+:root[data-theme="dark"] .segmented-control {
+  background-color: #141311;
+  border-color: #2D2A24;
+}
+
+body.theme-dark .segment-btn,
+:root[data-theme="dark"] .segment-btn {
+  color: #8E877D;
+}
+
+body.theme-dark .segment-btn:hover:not(.active),
+:root[data-theme="dark"] .segment-btn:hover:not(.active) {
+  color: #F3EFE6;
+  background-color: #211F1C;
+}
+
+body.theme-dark .segment-btn.active,
+:root[data-theme="dark"] .segment-btn.active {
+  background-color: #20271C;
+  color: #D9E4D4;
+  border-color: #44563B;
+  box-shadow: 0 0 0 1px #44563B, 0 1px 4px rgba(0, 0, 0, 0.4);
+}
+
+body.theme-dark .segment-btn.active svg,
+:root[data-theme="dark"] .segment-btn.active svg {
+  color: #7A8C6E;
+  stroke: #7A8C6E;
+}
+
+/* Theme toggle icon interactive micro-animations */
+#btn-theme-dark svg,
+#btn-theme-light svg {
+  transition: transform 0.35s cubic-bezier(0.34, 1.56, 0.64, 1), opacity 0.2s ease;
+}
+
+#btn-theme-dark.active svg {
+  transform: rotate(-18deg) scale(1.15);
+}
+
+#btn-theme-light.active svg {
+  transform: rotate(45deg) scale(1.15);
+}
+
+/* Smooth Theme Switch Animation & View Transitions */
+html.theme-transitioning,
+html.theme-transitioning *,
+html.theme-transitioning *::before,
+html.theme-transitioning *::after {
+  transition: background-color 0.4s cubic-bezier(0.4, 0, 0.2, 1),
+              color 0.4s cubic-bezier(0.4, 0, 0.2, 1),
+              border-color 0.4s cubic-bezier(0.4, 0, 0.2, 1),
+              box-shadow 0.4s cubic-bezier(0.4, 0, 0.2, 1),
+              fill 0.4s cubic-bezier(0.4, 0, 0.2, 1),
+              stroke 0.4s cubic-bezier(0.4, 0, 0.2, 1) !important;
+  transition-delay: 0s !important;
+}
+
+::view-transition-old(root),
+::view-transition-new(root) {
+  animation-duration: 0.4s;
+  animation-timing-function: cubic-bezier(0.4, 0, 0.2, 1);
 }
 
 .icon-btn-secondary {
@@ -962,11 +1042,13 @@ input, select, textarea {
   width: 100%;
   height: 240px;
   position: relative;
+  overflow: visible;
 }
 
 .chart-svg {
   width: 100%;
   height: 100%;
+  display: block;
   overflow: visible;
 }
 
@@ -992,16 +1074,26 @@ input, select, textarea {
 
 .chart-crosshair-tooltip {
   position: absolute;
-  background-color: var(--text-primary);
-  color: var(--text-inverse);
-  padding: 0.35rem 0.65rem;
-  border-radius: var(--radius-xs);
-  font-size: 0.7rem;
+  background-color: var(--bg-surface);
+  color: var(--text-primary);
+  border: 1px solid var(--border-hairline);
+  padding: 0.45rem 0.75rem;
+  border-radius: var(--radius-sm);
+  font-size: 0.72rem;
   pointer-events: none;
   display: none;
-  z-index: 20;
-  box-shadow: var(--shadow-modal);
+  z-index: 25;
+  box-shadow: 0 4px 18px rgba(0, 0, 0, 0.12);
   white-space: nowrap;
+  transition: opacity 0.1s ease;
+}
+
+.chart-point {
+  transition: r 0.15s ease;
+}
+
+.chart-hit-point {
+  cursor: pointer;
 }
 
 /* Horizontal Category Bars & Segmented Channel */

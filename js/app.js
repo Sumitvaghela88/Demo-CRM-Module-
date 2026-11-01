@@ -168,6 +168,98 @@
   }
 
   /* ==========================================================================
+     ROLE-BASED ACCESS CONTROL (RBAC) CONFIGURATION & MATRIX
+     ========================================================================== */
+  const ROLE_ACCESS = {
+    admin: [1, 2, 3, 4, 5, 6, 7, 8, 9, 10, 11, 12, 13, 14, 15, 16],
+    manager: [1, 2, 3, 4, 5, 6, 7, 9, 10, 11, 12, 13, 14, 15, 16],
+    staff: [1, 2, 4, 5, 9, 11, 12, 13, 16]
+  };
+
+  /**
+   * Update bottom-left active role chip text
+   */
+  function updateActiveRoleChip(role) {
+    const roleIndicator = document.getElementById('sidebar-role-indicator');
+    if (!roleIndicator) return;
+    if (role === 'admin') {
+      roleIndicator.textContent = 'Admin (Full Rights)';
+    } else if (role === 'manager') {
+      roleIndicator.textContent = 'Manager (Limited Rights)';
+    } else if (role === 'staff') {
+      roleIndicator.textContent = 'Staff (Basic Access)';
+    }
+  }
+
+  /**
+   * Apply role visibility on sidebar navigation items:
+   * 1. Completely hide (display: none) non-allowed modules
+   * 2. Sequentially renumber visible modules (1., 2., 3...)
+   * 3. Preserve counter badges (Products: 42, Returns: 8)
+   * 4. Hide section label if all modules in that section are hidden
+   */
+  function applyRoleVisibility(role) {
+    const activeRole = role || state.role || 'admin';
+    const allowedModules = ROLE_ACCESS[activeRole] || ROLE_ACCESS.admin;
+    const navItems = document.querySelectorAll('.sidebar-nav-container .nav-item');
+
+    let visibleCounter = 0;
+
+    navItems.forEach(item => {
+      const modId = parseInt(item.getAttribute('data-module-id'), 10);
+      const rolesAttr = item.getAttribute('data-roles') || '';
+      const allowedRoles = rolesAttr.split(',').map(r => r.trim().toLowerCase());
+
+      // Module is visible if included in ROLE_ACCESS array and allowed roles
+      const isAllowed = allowedModules.includes(modId) && allowedRoles.includes(activeRole);
+
+      if (isAllowed) {
+        item.style.display = '';
+        visibleCounter++;
+
+        // Re-number visible item
+        const baseTitle = item.getAttribute('data-base-title');
+        const titleSpan = item.querySelector('.nav-link-left > span');
+        if (titleSpan && baseTitle) {
+          titleSpan.textContent = `${visibleCounter}. ${baseTitle}`;
+        }
+      } else {
+        item.style.display = 'none';
+      }
+    });
+
+    // Toggle section labels ("Core Operations" and "Commerce & Logistics")
+    ['core', 'commerce'].forEach(sectionKey => {
+      const list = document.getElementById(`nav-list-${sectionKey}`);
+      const label = document.getElementById(`section-label-${sectionKey}`);
+      if (list && label) {
+        const visibleCount = Array.from(list.querySelectorAll('.nav-item')).filter(
+          el => el.style.display !== 'none'
+        ).length;
+        label.style.display = visibleCount === 0 ? 'none' : '';
+      }
+    });
+  }
+
+  /**
+   * Automatically redirect to Overview if the current page is not allowed for the active role
+   */
+  function checkCurrentPageAccess(role) {
+    const activeRole = role || state.role || 'admin';
+    const allowedModules = ROLE_ACCESS[activeRole] || ROLE_ACCESS.admin;
+    const VIEW_MODULE_MAP = {
+      overview: 1,
+      products: 2,
+      editor: 2,
+      returns: 16
+    };
+    const modId = VIEW_MODULE_MAP[state.currentView];
+    if (modId && !allowedModules.includes(modId)) {
+      switchView('overview');
+    }
+  }
+
+  /* ==========================================================================
      GLOBAL SHELL & ROLE-BASED ACCESS CONTROL (A1 - A5)
      ========================================================================== */
   function initShell() {
@@ -296,7 +388,12 @@
     // Update count badges
     updateAllSidebarBadges();
 
-    // Initial role enforcement
+    // Initial role enforcement & visibility
+    document.querySelectorAll('[data-role]').forEach(btn => {
+      btn.classList.toggle('active', btn.getAttribute('data-role') === state.role);
+    });
+    updateActiveRoleChip(state.role);
+    applyRoleVisibility(state.role);
     applyRolePermissions();
   }
 
@@ -388,13 +485,14 @@
       btn.classList.toggle('active', btn.getAttribute('data-role') === newRole);
     });
 
-    // Update sidebar indicator
-    const roleIndicator = document.getElementById('sidebar-role-indicator');
-    if (roleIndicator) {
-      if (newRole === 'admin') roleIndicator.textContent = 'Admin (Full Rights)';
-      else if (newRole === 'manager') roleIndicator.textContent = 'Manager (Catalogue & Reports)';
-      else if (newRole === 'staff') roleIndicator.textContent = 'Staff (Stock & Inventory Only)';
-    }
+    // Update bottom-left active role indicator
+    updateActiveRoleChip(newRole);
+
+    // Apply sidebar visibility and renumbering
+    applyRoleVisibility(newRole);
+
+    // Redirect to Overview if current page is not allowed
+    checkCurrentPageAccess(newRole);
 
     applyRolePermissions();
     showToast(`Role switched to: ${newRole.toUpperCase()}`);
@@ -414,11 +512,29 @@
     const isManager = state.role === 'manager';
     const isAdmin = state.role === 'admin';
 
-    // 1. Overview: Staff cannot see revenue figures (KPI locked overlays)
-    // Handled in renderOverview()
+    // 1. "Customize Widgets" button: Admin & Manager only (hide for staff)
+    const btnCustomize = document.getElementById('btn-customize-dashboard');
+    if (btnCustomize) {
+      btnCustomize.style.display = isStaff ? 'none' : 'inline-flex';
+    }
 
-    // 2. Products List:
-    // Delete buttons: Admin only
+    // 2. "Add Product" buttons: Admin & Manager only (hide for staff)
+    const btnQuickAddProd = document.getElementById('btn-quick-add-product');
+    if (btnQuickAddProd) {
+      btnQuickAddProd.style.display = isStaff ? 'none' : 'inline-flex';
+    }
+
+    const qaAddProd = document.getElementById('qa-add-product');
+    if (qaAddProd) {
+      qaAddProd.style.display = isStaff ? 'none' : 'inline-flex';
+    }
+
+    const btnCreateProd = document.getElementById('btn-create-new-product');
+    if (btnCreateProd) {
+      btnCreateProd.style.display = isStaff ? 'none' : 'inline-flex';
+    }
+
+    // 3. Products List permissions
     const bulkDeleteBtn = document.getElementById('bulk-btn-delete');
     if (bulkDeleteBtn) {
       bulkDeleteBtn.style.display = isAdmin ? 'inline-flex' : 'none';
@@ -435,48 +551,61 @@
     if (bulkArchive) bulkArchive.style.display = isStaff ? 'none' : 'inline-flex';
     if (bulkDiscount) bulkDiscount.style.display = isStaff ? 'none' : 'inline-flex';
 
-    // Add Product button in Products List: Admin & Manager only
-    const btnCreateProd = document.getElementById('btn-create-new-product');
-    const btnQuickAddProd = document.getElementById('btn-quick-add-product');
-    if (btnCreateProd) btnCreateProd.style.display = isStaff ? 'none' : 'inline-flex';
-    if (btnQuickAddProd) btnQuickAddProd.style.display = isStaff ? 'none' : 'inline-flex';
-
     // CSV Import / Export: Export for all, Import for Admin/Manager
     const btnImport = document.getElementById('btn-import-csv');
     if (btnImport) btnImport.style.display = isStaff ? 'none' : 'inline-flex';
-
-    // Dashboard customizer: Admin only
-    const btnCustomize = document.getElementById('btn-customize-dashboard');
-    if (btnCustomize) btnCustomize.style.display = isAdmin ? 'inline-flex' : 'none';
   }
 
   function setTheme(themeName, showNotification = true) {
-    state.theme = themeName;
-    localStorage.setItem('boutique_theme', themeName);
+    const performThemeChange = () => {
+      state.theme = themeName;
+      localStorage.setItem('boutique_theme', themeName);
 
-    const body = document.body;
-    const btnDark = document.getElementById('btn-theme-dark');
-    const btnLight = document.getElementById('btn-theme-light');
+      const body = document.body;
+      const html = document.documentElement;
+      const btnDark = document.getElementById('btn-theme-dark');
+      const btnLight = document.getElementById('btn-theme-light');
 
-    if (themeName === 'dark') {
-      body.classList.add('theme-dark');
-      body.setAttribute('data-theme', 'dark');
-      if (btnDark) btnDark.classList.add('active');
-      if (btnLight) btnLight.classList.remove('active');
-    } else {
-      body.classList.remove('theme-dark');
-      body.setAttribute('data-theme', 'light');
-      if (btnLight) btnLight.classList.add('active');
-      if (btnDark) btnDark.classList.remove('active');
-    }
+      if (themeName === 'dark') {
+        body.classList.add('theme-dark');
+        body.setAttribute('data-theme', 'dark');
+        html.setAttribute('data-theme', 'dark');
+        if (btnDark) btnDark.classList.add('active');
+        if (btnLight) btnLight.classList.remove('active');
+      } else {
+        body.classList.remove('theme-dark');
+        body.setAttribute('data-theme', 'light');
+        html.setAttribute('data-theme', 'light');
+        if (btnLight) btnLight.classList.add('active');
+        if (btnDark) btnDark.classList.remove('active');
+      }
+
+      // Re-draw SVG chart with correct color palette
+      if (state.currentView === 'overview') {
+        renderSalesChart();
+      }
+    };
 
     if (showNotification) {
-      showToast(`Switched to ${themeName === 'dark' ? 'Obsidian Dark' : 'Warm Bone Light'} theme`);
-    }
+      // Trigger smooth color transition across all elements
+      document.documentElement.classList.add('theme-transitioning');
+      clearTimeout(window._themeTransitionTimer);
+      window._themeTransitionTimer = setTimeout(() => {
+        document.documentElement.classList.remove('theme-transitioning');
+      }, 450);
 
-    // Re-draw SVG chart with correct color palette
-    if (state.currentView === 'overview') {
-      renderSalesChart();
+      // Native View Transitions API support for seamless crossfade
+      if (document.startViewTransition) {
+        document.startViewTransition(() => {
+          performThemeChange();
+        });
+      } else {
+        performThemeChange();
+      }
+
+      showToast(`Switched to ${themeName === 'dark' ? 'Obsidian Dark' : 'Warm Bone Light'} theme`);
+    } else {
+      performThemeChange();
     }
   }
 
@@ -739,6 +868,7 @@
 
     // B3: Sales Over Time Line Chart
     renderSalesChart();
+    setupChartResizeObserver();
 
     // B4: Orders Needing Action
     renderActionOrders();
@@ -975,44 +1105,43 @@
       }
     ];
 
-    container.innerHTML = kpiData.map(kpi => {
-      const showLockedOverlay = isStaff && kpi.isRestrictedForStaff;
+    const visibleKpiData = isStaff
+      ? kpiData.filter(k => k.id !== 'rev' && k.id !== 'aov')
+      : kpiData;
 
-      return `
-        <div class="kpi-card" style="position: relative;">
-          ${showLockedOverlay ? `
-            <div class="kpi-locked-overlay" title="Revenue analytics restricted to Manager & Admin roles.">
-              <div style="background: var(--bg-surface); border: 1px solid var(--border-hairline); border-radius: var(--radius-xs); padding: 0.35rem 0.65rem; display: flex; align-items: center; gap: 0.4rem; font-size: 0.72rem; font-weight: 600;">
-                ${ICONS.lock}
-                <span>Restricted (Staff View)</span>
-              </div>
-            </div>
-          ` : ''}
-          <div class="kpi-label-row">
-            <span class="kpi-label">${kpi.title}</span>
-            <span class="kpi-delta ${kpi.isPositive ? 'positive' : 'negative'}">
-              ${kpi.isPositive ? ICONS.trendUp : ICONS.trendDown}
-              ${kpi.delta}
-            </span>
-          </div>
-          <div class="kpi-value ${showLockedOverlay ? 'text-muted' : ''}">${showLockedOverlay ? '••••••' : kpi.value}</div>
-          <div style="display: flex; justify-content: space-between; align-items: flex-end; margin-top: 0.35rem;">
-            <span class="kpi-subtext">${kpi.sub}</span>
-            ${!showLockedOverlay ? kpi.spark : ''}
-          </div>
+    if (window.innerWidth > 1200) {
+      container.style.gridTemplateColumns = isStaff ? 'repeat(4, 1fr)' : 'repeat(6, 1fr)';
+    } else {
+      container.style.gridTemplateColumns = '';
+    }
+
+    container.innerHTML = visibleKpiData.map(kpi => `
+      <div class="kpi-card" style="position: relative;">
+        <div class="kpi-label-row">
+          <span class="kpi-label">${kpi.title}</span>
+          <span class="kpi-delta ${kpi.isPositive ? 'positive' : 'negative'}">
+            ${kpi.isPositive ? ICONS.trendUp : ICONS.trendDown}
+            ${kpi.delta}
+          </span>
         </div>
-      `;
-    }).join('');
+        <div class="kpi-value">${kpi.value}</div>
+        <div style="display: flex; justify-content: space-between; align-items: flex-end; margin-top: 0.35rem;">
+          <span class="kpi-subtext">${kpi.sub}</span>
+          ${kpi.spark}
+        </div>
+      </div>
+    `).join('');
   }
 
   /* --- B3: SALES OVER TIME LINE CHART --- */
   function renderSalesChart() {
     const svg = document.getElementById('sales-svg-chart');
+    const wrapper = document.getElementById('sales-chart-wrapper');
     const legendCurr = document.getElementById('chart-legend-curr');
     const legendPrev = document.getElementById('chart-legend-prev');
     const dateDisplay = document.getElementById('chart-date-display');
     const tooltip = document.getElementById('chart-tooltip');
-    if (!svg) return;
+    if (!svg || !wrapper) return;
 
     const metric = state.overview.chartMetric; // 'revenue' | 'orders'
     const channel = state.overview.chartChannel; // 'both' | 'online' | 'pos'
@@ -1062,8 +1191,9 @@
       legendPrev.textContent = `Previous Period (${metric === 'revenue' ? formatUSD(sumPrevious) : formatNumber(sumPrevious) + ' orders'})`;
     }
 
-    // SVG Canvas Dimensions
-    const width = 700;
+    // SVG Canvas Dimensions: dynamically adapt to actual container width!
+    const wrapperRect = wrapper.getBoundingClientRect();
+    const width = Math.max(480, Math.round(wrapperRect.width || 700));
     const height = 240;
     const paddingLeft = 55;
     const paddingRight = 20;
@@ -1071,6 +1201,9 @@
     const paddingBottom = 35;
     const chartW = width - paddingLeft - paddingRight;
     const chartH = height - paddingTop - paddingBottom;
+
+    svg.setAttribute('viewBox', `0 0 ${width} ${height}`);
+    svg.setAttribute('preserveAspectRatio', 'none');
 
     const allValues = [...currentValues, ...previousValues];
     const maxVal = Math.max(...allValues, 10) * 1.15;
@@ -1111,14 +1244,15 @@
       Z
     `;
 
-    // Build X-Axis Date Labels (sample 6 ticks)
+    // Build X-Axis Date Labels (sample ticks adapted to available width)
     let xLabelsHtml = '';
-    const stepTick = Math.max(1, Math.floor(dataSlice.length / 6));
+    const numTicks = width > 900 ? 8 : width > 600 ? 6 : 4;
+    const stepTick = Math.max(1, Math.floor(dataSlice.length / numTicks));
     for (let i = 0; i < dataSlice.length; i += stepTick) {
       const item = dataSlice[i];
       const x = getX(i);
       xLabelsHtml += `
-        <text x="${x}" y="${height - 10}" fill="var(--text-muted)" font-size="9" font-family="var(--font-mono)" text-anchor="middle">${item.dayOfWeek} ${item.date.slice(5)}</text>
+        <text x="${x.toFixed(1)}" y="${height - 10}" fill="var(--text-muted)" font-size="9" font-family="var(--font-mono)" text-anchor="middle">${item.dayOfWeek} ${item.date.slice(5)}</text>
       `;
     }
 
@@ -1133,62 +1267,173 @@
       <polyline points="${prevPoints}" fill="none" stroke="var(--text-muted)" stroke-opacity="0.5" stroke-dasharray="4,4" stroke-width="1.75" />
       <!-- Current Period Solid Line -->
       <polyline points="${currPoints}" fill="none" stroke="${accentStroke}" stroke-width="2.5" stroke-linecap="round" stroke-linejoin="round" />
-      <!-- Interactive Data Points -->
+      <!-- Interactive Data Points & Hit Targets -->
       ${currentValues.map((v, i) => `
-        <circle class="chart-point" data-index="${i}" cx="${getX(i).toFixed(1)}" cy="${getY(v).toFixed(1)}" r="3" fill="var(--bg-surface)" stroke="${accentStroke}" stroke-width="2" style="cursor: pointer;" />
+        <circle class="chart-point" data-index="${i}" cx="${getX(i).toFixed(1)}" cy="${getY(v).toFixed(1)}" r="3" fill="var(--bg-surface)" stroke="${accentStroke}" stroke-width="2" style="pointer-events: none;" />
+        <circle class="chart-hit-point" data-index="${i}" cx="${getX(i).toFixed(1)}" cy="${getY(v).toFixed(1)}" r="14" fill="transparent" style="cursor: pointer;" />
       `).join('')}
       ${xLabelsHtml}
-      <line id="svg-crosshair-line" x1="0" y1="${paddingTop}" x2="0" y2="${paddingTop + chartH}" stroke="var(--accent)" stroke-width="1" stroke-dasharray="2,2" style="display: none;" />
+      <!-- Vertical Crosshair Line -->
+      <line id="svg-crosshair-line" x1="0" y1="${paddingTop}" x2="0" y2="${paddingTop + chartH}" stroke="var(--accent)" stroke-width="1" stroke-dasharray="2,2" stroke-opacity="0.65" style="display: none; pointer-events: none;" />
+      <!-- Active Point Dot Highlight -->
+      <circle id="svg-active-dot" cx="0" cy="0" r="5.5" fill="var(--bg-surface)" stroke="${accentStroke}" stroke-width="2.5" style="display: none; pointer-events: none; filter: drop-shadow(0 2px 4px rgba(0,0,0,0.3));" />
     `;
 
-    // Tooltip interaction
+    // Tooltip and Hover interaction
     const crosshair = svg.querySelector('#svg-crosshair-line');
-    const points = svg.querySelectorAll('.chart-point');
+    const activeDot = svg.querySelector('#svg-active-dot');
+
+    function hideTooltip() {
+      if (crosshair) crosshair.style.display = 'none';
+      if (activeDot) activeDot.style.display = 'none';
+      if (tooltip) tooltip.style.display = 'none';
+    }
 
     svg.onmousemove = function (e) {
-      const rect = svg.getBoundingClientRect();
-      const mouseX = ((e.clientX - rect.left) / rect.width) * width;
+      const rect = wrapper.getBoundingClientRect();
+      const mouseX = e.clientX - rect.left;
+      const mouseY = e.clientY - rect.top;
+
+      // Hide if mouse pointer is outside graph plotting area
+      if (
+        mouseX < paddingLeft - 10 ||
+        mouseX > width - paddingRight + 10 ||
+        mouseY < paddingTop - 15 ||
+        mouseY > paddingTop + chartH + 15
+      ) {
+        hideTooltip();
+        return;
+      }
 
       // Find closest data point
-      let closestIdx = 0;
-      let minDiff = Infinity;
-      dataSlice.forEach((_, i) => {
-        const diff = Math.abs(getX(i) - mouseX);
-        if (diff < minDiff) {
-          minDiff = diff;
+      let closestIdx = -1;
+      let minDistance = Infinity;
+
+      for (let i = 0; i < dataSlice.length; i++) {
+        const px = getX(i);
+        const py = getY(currentValues[i]);
+        const dist = Math.hypot(mouseX - px, mouseY - py);
+        if (dist < minDistance) {
+          minDistance = dist;
           closestIdx = i;
         }
-      });
+      }
+
+      if (closestIdx === -1) {
+        hideTooltip();
+        return;
+      }
 
       const ptX = getX(closestIdx);
+      const ptY = getY(currentValues[closestIdx]);
+      const dx = Math.abs(mouseX - ptX);
+      const dy = Math.abs(mouseY - ptY);
+
+      // Distance threshold: prevents showing tooltip when pointer is far away ("dur")
+      // Only show when user hovers near the point/line
+      const stepX = dataSlice.length > 1 ? chartW / (dataSlice.length - 1) : 40;
+      const maxAllowedX = Math.max(16, stepX * 0.75);
+      const maxAllowedY = 45;
+
+      if (dx > maxAllowedX || dy > maxAllowedY) {
+        hideTooltip();
+        return;
+      }
+
       const currVal = currentValues[closestIdx];
       const prevVal = previousValues[closestIdx];
       const item = dataSlice[closestIdx];
 
+      // Update vertical guide line
       if (crosshair) {
-        crosshair.setAttribute('x1', ptX);
-        crosshair.setAttribute('x2', ptX);
+        crosshair.setAttribute('x1', ptX.toFixed(1));
+        crosshair.setAttribute('x2', ptX.toFixed(1));
         crosshair.style.display = 'block';
+      }
+
+      // Highlight active circle directly on the data point
+      if (activeDot) {
+        activeDot.setAttribute('cx', ptX.toFixed(1));
+        activeDot.setAttribute('cy', ptY.toFixed(1));
+        activeDot.style.display = 'block';
       }
 
       if (tooltip) {
         const pctDelta = prevVal > 0 ? (((currVal - prevVal) / prevVal) * 100).toFixed(1) : '0';
+        const isUp = parseFloat(pctDelta) >= 0;
+        const deltaColor = isUp ? 'var(--stock-in)' : 'var(--stock-out)';
+        const deltaSign = isUp ? '+' : '';
+
         tooltip.innerHTML = `
-          <div style="font-size: 0.6875rem; color: var(--text-muted); margin-bottom: 0.2rem;">${item.date} (${item.dayOfWeek})</div>
-          <div style="font-weight: 700; font-size: 0.85rem; color: var(--text-primary);">Current: ${metric === 'revenue' ? formatUSD(currVal) : currVal + ' orders'}</div>
-          <div style="font-size: 0.72rem; color: var(--text-muted); margin-top: 0.15rem;">Previous: ${metric === 'revenue' ? formatUSD(prevVal) : prevVal + ' orders'} <span style="color: ${pctDelta >= 0 ? 'var(--stock-in)' : 'var(--stock-out)'}">(${pctDelta >= 0 ? '+' : ''}${pctDelta}%)</span></div>
+          <div style="font-size: 0.6875rem; color: var(--text-muted); font-family: var(--font-mono); margin-bottom: 0.25rem;">${item.date} (${item.dayOfWeek})</div>
+          <div style="font-weight: 700; font-size: 0.85rem; color: var(--text-primary); margin-bottom: 0.2rem; display: flex; align-items: baseline; gap: 0.35rem;">
+            <span>Current:</span>
+            <span style="font-family: var(--font-mono);">${metric === 'revenue' ? formatUSD(currVal) : formatNumber(currVal) + ' orders'}</span>
+          </div>
+          <div style="font-size: 0.72rem; color: var(--text-secondary); display: flex; align-items: baseline; gap: 0.35rem;">
+            <span>Previous:</span>
+            <span style="font-family: var(--font-mono);">${metric === 'revenue' ? formatUSD(prevVal) : formatNumber(prevVal) + ' orders'}</span>
+            <span style="color: ${deltaColor}; font-weight: 600; font-family: var(--font-mono); font-size: 0.6875rem;">(${deltaSign}${pctDelta}%)</span>
+          </div>
         `;
+
+        // Position tooltip directly at the hovered point ("vahi aaye")
+        // Since viewBox matches wrapper dimensions 1:1, ptX and ptY are the exact pixel coordinates
+        const pixelX = ptX;
+        const pixelY = ptY;
+        const containerW = rect.width;
+
+        // Vertical position: above point, flip below if too close to top
+        const showBelow = pixelY < 72;
+        const topPos = showBelow ? (pixelY + 14) : (pixelY - 12);
+        const translateY = showBelow ? '0%' : '-100%';
+
+        // Horizontal position: center on point, clamp near borders to prevent clipping
+        let leftPos = pixelX;
+        let translateX = '-50%';
+
+        if (pixelX < 90) {
+          translateX = '0%';
+          leftPos = Math.max(8, pixelX - 10);
+        } else if (pixelX > containerW - 130) {
+          translateX = '-100%';
+          leftPos = Math.min(containerW - 8, pixelX + 10);
+        }
+
+        tooltip.style.left = `${leftPos.toFixed(1)}px`;
+        tooltip.style.top = `${topPos.toFixed(1)}px`;
+        tooltip.style.transform = `translate(${translateX}, ${translateY})`;
         tooltip.style.display = 'block';
-        tooltip.style.left = `${(ptX / width) * 100}%`;
-        tooltip.style.top = '15px';
       }
     };
 
-    svg.onmouseleave = function () {
-      if (crosshair) crosshair.style.display = 'none';
-      if (tooltip) tooltip.style.display = 'none';
-    };
+    svg.onmouseleave = hideTooltip;
   }
+
+  // Set up resize observer on chart wrapper so zoom / large display changes auto-adjust
+  let chartResizeObserver = null;
+  function setupChartResizeObserver() {
+    const wrapper = document.getElementById('sales-chart-wrapper');
+    if (!wrapper || chartResizeObserver) return;
+    let resizeTimer = null;
+    if (window.ResizeObserver) {
+      chartResizeObserver = new ResizeObserver(() => {
+        clearTimeout(resizeTimer);
+        resizeTimer = setTimeout(() => {
+          if (state.activeView === 'overview') {
+            renderSalesChart();
+          }
+        }, 50);
+      });
+      chartResizeObserver.observe(wrapper);
+    }
+  }
+
+  window.addEventListener('resize', () => {
+    if (state.activeView === 'overview') {
+      renderSalesChart();
+    }
+  });
 
   /* --- B4: ORDERS NEEDING ACTION --- */
   function renderActionOrders() {
